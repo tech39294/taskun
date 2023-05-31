@@ -1,6 +1,10 @@
 <mxfile host="65bd71144e">
     <diagram id="Ka1vk4F85dSO5TzeCcQP" name="ページ1">
+<<<<<<< HEAD
         <mxGraphModel dx="667" dy="708" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+=======
+        <mxGraphModel dx="1285" dy="708" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+>>>>>>> ffe31da59462a41893f3dfd0ea37ad7013f07982
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -34,7 +38,11 @@
                 <mxCell id="23" value="memo" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="13" vertex="1">
                     <mxGeometry y="146" width="170" height="30" as="geometry"/>
                 </mxCell>
+<<<<<<< HEAD
                 <mxCell id="22" value="task_template" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="13" vertex="1">
+=======
+                <mxCell id="22" value="task_search_status" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="13" vertex="1">
+>>>>>>> ffe31da59462a41893f3dfd0ea37ad7013f07982
                     <mxGeometry y="176" width="170" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="47" style="edgeStyle=none;html=1;startArrow=ERmany;startFill=0;endArrow=ERone;endFill=0;endSize=31;startSize=31;entryX=0.418;entryY=1.139;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" target="22" edge="1">
@@ -46,6 +54,7 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
+<<<<<<< HEAD
                 <mxCell id="27" value="task_templates" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" parent="1" vertex="1">
                     <mxGeometry x="150" y="460" width="170" height="116" as="geometry"/>
                 </mxCell>
@@ -58,6 +67,17 @@
                 <mxCell id="62" value="user" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="27">
                     <mxGeometry y="86" width="170" height="30" as="geometry"/>
                 </mxCell>
+=======
+                <mxCell id="27" value="relationship" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="150" y="460" width="170" height="86" as="geometry"/>
+                </mxCell>
+                <mxCell id="28" value="follower" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="27" vertex="1">
+                    <mxGeometry y="26" width="170" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="29" value="following" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="27" vertex="1">
+                    <mxGeometry y="56" width="170" height="30" as="geometry"/>
+                </mxCell>
+>>>>>>> ffe31da59462a41893f3dfd0ea37ad7013f07982
                 <mxCell id="32" value="subtasks" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" parent="1" vertex="1">
                     <mxGeometry x="470" y="370" width="170" height="116" as="geometry"/>
                 </mxCell>
@@ -70,7 +90,11 @@
                 <mxCell id="36" value="task" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="32" vertex="1">
                     <mxGeometry y="86" width="170" height="30" as="geometry"/>
                 </mxCell>
+<<<<<<< HEAD
                 <mxCell id="50" style="edgeStyle=none;html=1;exitX=0.958;exitY=-0.025;exitDx=0;exitDy=0;startArrow=baseDash;startFill=0;endArrow=ERmany;endFill=0;endSize=31;startSize=31;entryX=-0.017;entryY=0.74;entryDx=0;entryDy=0;entryPerimeter=0;exitPerimeter=0;" parent="1" source="27" target="23" edge="1">
+=======
+                <mxCell id="50" style="edgeStyle=none;html=1;exitX=0.889;exitY=-0.009;exitDx=0;exitDy=0;startArrow=ERmany;startFill=0;endArrow=ERone;endFill=0;endSize=31;startSize=31;entryX=-0.017;entryY=0.74;entryDx=0;entryDy=0;entryPerimeter=0;exitPerimeter=0;" parent="1" source="27" target="23" edge="1">
+>>>>>>> ffe31da59462a41893f3dfd0ea37ad7013f07982
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="301.98" y="465.95799999999997" as="sourcePoint"/>
                         <mxPoint x="460" y="160" as="targetPoint"/>
@@ -90,6 +114,7 @@
                         <Array as="points"/>
                     </mxGeometry>
                 </mxCell>
+<<<<<<< HEAD
                 <mxCell id="63" value="subtask_templates" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" vertex="1" parent="1">
                     <mxGeometry x="150" y="650" width="170" height="116" as="geometry"/>
                 </mxCell>
@@ -109,6 +134,8 @@
                         <Array as="points"/>
                     </mxGeometry>
                 </mxCell>
+=======
+>>>>>>> ffe31da59462a41893f3dfd0ea37ad7013f07982
             </root>
         </mxGraphModel>
     </diagram>
