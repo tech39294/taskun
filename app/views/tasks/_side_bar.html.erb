@@ -1,0 +1,13 @@
+<div class ="side-bar-header">
+  <div class ="header-name">
+    <%= link_to current_user.username%>
+  </div>
+</div>
+
+<div class= "menus">
+  <div class="menu">
+    <div class="logout">
+      <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+    </div>
+  </div>
+</div>
