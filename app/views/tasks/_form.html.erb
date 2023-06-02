@@ -11,10 +11,10 @@
   <%= f.fields_for :subtasks do |subtask_f| %>
     <div class="subtask">
       <div class="subtask-deadline">
-        <%= subtask_f.date_field :deadline, id: "subtask-deadline", placeholder: "期限" %>
+        <%= subtask_f.date_field :subtask_deadline, id: "subtask-deadline", placeholder: "期限" %>
       </div>
       <div class="subtask-title">
-        <%= subtask_f.text_field :title, id: "subtask-title", placeholder: "サブタスク名" %>
+        <%= subtask_f.text_field :sabtask_title, id: "subtask-title", placeholder: "サブタスク名" %>
       </div>
     </div>
   <% end %>
@@ -38,7 +38,7 @@
       Memo
     </div>
     <div class="memo-content">
-      <%= f.text_area :memo, id: "memo", rows: 8, style: "height: 120px; width:1100px;", placeholder: "メモの内容" %>
+      <%= f.text_area :memo, id: "memo", rows: 8, style: "height: 120px; width:1300px;", placeholder: "メモの内容" %>
     </div>
   </div>
 
