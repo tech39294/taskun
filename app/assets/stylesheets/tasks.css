@@ -1,3 +1,316 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+    line-height: 1;
+    font-size: 1.4rem;
+}
+
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/******************************************** 
+  画面全体
+*********************************************/
 .wrapper {
   display: flex;
 }
+
+/******************************************** 
+  サイドバー
+*********************************************/
+
+.side-bar {
+  background-color: #99CC99;
+  width: 250px;
+  height: 100vh;
+}
+
+.menu{
+  height: 100px;
+  display: flex;
+  align-items: center;
+  padding: 0 0 0 25px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.menu div {
+  font-size: 16px; 
+}
+
+.new-task-link {
+  max-width: 500px;
+  padding: 20px;
+  background-color: #f7f7f7;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/******************************************** 
+  indexのメインコンテンツ
+*********************************************/
+.main_content {
+  width: calc(100vw - 300px); 
+}
+
+.task {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid gray;
+}
+
+.task-deadline {
+  width: 150px;
+  padding-left: 20px; 
+}
+
+.task-title {
+  width: calc(100% - 120px); 
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+}
+
+/******************************************** 
+  showのメインコンテンツ
+*********************************************/
+
+.subtask {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid lightgray;
+}
+
+.subtask-deadline {
+  width: 150px;
+  padding-left: 20px; 
+}
+
+.memo {
+  margin: 20px 0 0 0;
+  text-align: center;
+  border: 1px solid gray; 
+  display: flex; 
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center;
+}
+
+.memo-title {
+  height:40px;
+  line-height: 40px; 
+  font-weight: bold;
+  background-color: lightgray;
+  width: 100%;
+}
+
+.memo-content {
+  padding: 20px;
+  height: 180px;
+  resize: none; 
+  overflow: auto; 
+}
+
+.buttons {
+  display: flex;
+  margin-top: 10px;
+}
+
+.edit-button,
+.delete-button,
+.share-button,
+.consult-button {
+  width: 60px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 5px; 
+  margin-left:10px;
+}
+
+/******************************************** 
+  新規投稿画面
+*********************************************/
+
+.new-task {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f7f7f7;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.task-form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="date"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+textarea {
+  height: 120px;
+  resize: vertical;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: gray;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #1c5bbd;
+}
+
+.subtask-form-group {
+  margin-bottom: 20px;
+}
+
+.subtask-form {
+  margin-bottom: 10px;
+}
+
+#add-subtask-button {
+  margin-bottom: 20px;
+}
+
+/******************************************** 
+  テンプレート検索画面
+*********************************************/
+.page-title {
+  margin-top: 30px;
+}
+
+.search-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+#search-input {
+  width: 400px;
+  padding: 10px;
+  margin: 0 10px 0 0;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#search-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: gray;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.template{
+  padding: 0 0 0 20px; 
+  width: 100%; 
+  height:80px;
+  border-bottom: 1px solid gray;
+  display: flex;
+  align-items:center;
+}
+
+.template-title{
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+}
+
+.template-create-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.template-create-button button {
+  width: 200px;
+  padding: 10px;
+  font-size: 16px;
+  background-color: gray;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
