@@ -1,0 +1,49 @@
+<%= form_with model: @task, local: true do |f|%>
+  <div class="task">
+    <div class="task-deadline">
+      <%= f.date_field :task_deadline, id: "task-deadline", placeholder: "期限" %>
+    </div>
+    <div class="task-title">
+      <%= f.text_field :task_title, id: "task-title", placeholder: "タスク名" %>
+    </div>
+  </div>
+
+  <%= f.fields_for :subtasks do |subtask_f| %>
+    <div class="subtask">
+      <div class="subtask-deadline">
+        <%= subtask_f.date_field :deadline, id: "subtask-deadline", placeholder: "期限" %>
+      </div>
+      <div class="subtask-title">
+        <%= subtask_f.text_field :title, id: "subtask-title", placeholder: "サブタスク名" %>
+      </div>
+    </div>
+  <% end %>
+
+  <%= button_tag 'サブタスク追加', type: 'button', id: 'add-subtask-button' %>
+
+  <div class="task-form-group">
+    <label>重要度</label>
+    <div class="importance-buttons">
+      <label>
+        <%= f.radio_button :importance_status_id, 1, required: true %> 高
+      </label>
+      <label>
+        <%= f.radio_button :importance_status_id, 2, required: true %> 低
+      </label>
+    </div>
+  </div>
+
+  <div class="memo">
+    <div class="memo-title">
+      Memo
+    </div>
+    <div class="memo-content">
+      <%= f.text_area :memo, id: "memo", rows: 8, style: "height: 120px; width:1100px;", placeholder: "メモの内容" %>
+    </div>
+  </div>
+
+  <div class="buttons">
+    <%= f.submit "更新", class: "edit-button" %>
+  </div>
+<% end %>
+

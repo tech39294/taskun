@@ -3,6 +3,8 @@ class TasksController < ApplicationController
   end
 
   def new
+    @task = Task.new
+    @task.subtasks.build
   end
   
   def create
