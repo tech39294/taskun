@@ -137,6 +137,13 @@
   background-color: #f7f7f7;
 }
 
+.subtask{
+  height:80px;
+  width: 100%;
+  padding: 0 0 0 20px;
+  margin-bottom:20px;
+}
+
 .subtask-title{
   width:100%;
 }
@@ -159,9 +166,8 @@ label {
   width:200px;
 }
 
-/* input[type="date"]{
-  width: 100%;
-} */
+
+
 input[type="text"],
 input[type="date"],
 textarea {
