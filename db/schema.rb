@@ -13,8 +13,8 @@
 ActiveRecord::Schema.define(version: 2023_06_02_155856) do
 
   create_table "subtasks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "subtask_title", null: false
-    t.date "subtask_deadline", null: false
+    t.string "subtask_title"
+    t.date "subtask_deadline"
     t.bigint "task_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

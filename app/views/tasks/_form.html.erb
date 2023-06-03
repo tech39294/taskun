@@ -1,4 +1,6 @@
 <%= form_with model: @task, local: true do |f|%>
+<%= render 'shared/error_messages', model: @task %>
+
   <div class="task">
     <div class="task-deadline">
       <%= f.date_field :task_deadline, id: "task-deadline", placeholder: "期限" %>
