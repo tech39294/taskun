@@ -23,22 +23,21 @@ RSpec.describe Subtask, type: :model do
         @subtask.subtask_title = 'Test Subtask'
         @subtask.subtask_deadline = ''
         @subtask.valid?
-        expect(@subtask.errors.full_messages).to include("Subtask title and deadline must be both present or absent")
+        expect(@subtask.errors.full_messages).to include('Subtask title and deadline must be both present or absent')
       end
 
       it '期限だけが存在するときは作成できない' do
         @subtask.subtask_title = ''
         @subtask.subtask_deadline = '2023-06-10'
         @subtask.valid?
-        expect(@subtask.errors.full_messages).to include("Subtask title and deadline must be both present or absent")
+        expect(@subtask.errors.full_messages).to include('Subtask title and deadline must be both present or absent')
       end
 
       it 'タスクが関連付けられていなければ作成できない' do
         @subtask.task = nil
         @subtask.valid?
-        expect(@subtask.errors.full_messages).to include("Task must exist")
+        expect(@subtask.errors.full_messages).to include('Task must exist')
       end
     end
   end
 end
-

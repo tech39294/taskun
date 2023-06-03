@@ -39,16 +39,14 @@ RSpec.describe Task, type: :model do
       it '重要度が1または2以外では作成できない' do
         @task.importance_status_id = 3
         @task.valid?
-        expect(@task.errors.full_messages).to include("Importance status is not included in the list")
+        expect(@task.errors.full_messages).to include('Importance status is not included in the list')
       end
 
       it 'ユーザーが関連付けられていなければ作成できない' do
         @task.user = nil
         @task.valid?
-        expect(@task.errors.full_messages).to include("User must exist")
+        expect(@task.errors.full_messages).to include('User must exist')
       end
     end
   end
 end
-
-

@@ -1,5 +1,4 @@
 class SubtasksController < ApplicationController
-
   def new
     @subtask = @task.subtasks.build
   end
@@ -13,8 +12,8 @@ class SubtasksController < ApplicationController
     end
   end
 
-
   private
+
   def subtask_params
     params.require(:subtask).permit(:subtask_title, :subtask_deadline)
   end

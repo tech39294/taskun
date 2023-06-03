@@ -4,6 +4,6 @@ FactoryBot.define do
     task_deadline { Faker::Date.forward(days: 30) }
     importance_status_id { Faker::Number.between(from: 1, to: 2) }
     memo { Faker::Lorem.paragraph }
-    association :user 
+    association :user
   end
 end
