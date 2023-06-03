@@ -2,6 +2,7 @@ class Task < ApplicationRecord
 belongs_to :user
 belongs_to :task_template, optional: true
 has_many :subtasks
+accepts_nested_attributes_for :subtasks
 
 validates :task_title, presence: true
 validates :task_deadline, presence: true

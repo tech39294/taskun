@@ -8,16 +8,18 @@
     </div>
   </div>
 
-  <%= f.fields_for :subtasks do |subtask_f| %>
+  <div id="subtasks-container">
+  <%= f.fields_for :subtasks do |subtask_f| %> 
     <div class="subtask">
       <div class="subtask-deadline">
-        <%= subtask_f.date_field :subtask_deadline, id: "subtask-deadline", placeholder: "期限" %>
+        <%= subtask_f.date_field :subtask_deadline, placeholder: "期限" %>
       </div>
       <div class="subtask-title">
-        <%= subtask_f.text_field :sabtask_title, id: "subtask-title", placeholder: "サブタスク名" %>
+        <%= subtask_f.text_field :subtask_title, placeholder: "サブタスク名" %>
       </div>
     </div>
   <% end %>
+  </div>
 
   <%= button_tag 'サブタスク追加', type: 'button', id: 'add-subtask-button' %>
 

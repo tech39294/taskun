@@ -4,12 +4,13 @@ class TasksController < ApplicationController
 
   def new
     @task = Task.new
+    @task.subtasks.build
   end
 
   def create
     @task = Task.new(task_params)
     if @task.save
-      redirect_to @task
+      redirect_to tasks_path
     else
       render 'new'
     end
@@ -18,7 +19,7 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:task_title, :task_deadline, :importance_status_id, :memo, :user_id, :task_template_id, subtasks_attributes: [:id, :subtask_title, :subtask_deadline])
-  end
+    params.require(:task).permit(:task_title, :task_deadline, :importance_status_id, :memo, :task_template_id, subtasks_attributes: [:subtask_title, :subtask_deadline]).merge(user_id: current_user.id)
+  end  
 
 end
