@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener("turbolinks:load", function() {
   const addSubtaskButton = document.querySelector('#add-subtask-button');
   const subtasksContainer = document.querySelector('#subtasks-container');
 
