@@ -1,8 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe "Tasks", type: :request do
-
-  describe "GET /tasks" do
+RSpec.describe 'Tasks', type: :request do
+  describe 'GET /tasks' do
     before do
       @user = FactoryBot.create(:user)
       @task = FactoryBot.create(:task, user: @user)
@@ -30,19 +29,18 @@ RSpec.describe "Tasks", type: :request do
 
       it '投稿されているタスクが一覧で表示される' do
         expect(response.body).to include(@task.task_title)
-        expect(response.body).to include(@task.task_deadline.strftime("%Y-%m-%d"))
+        expect(response.body).to include(@task.task_deadline.strftime('%Y-%m-%d'))
       end
 
       it '重要度が高いタスクはパトランプが表示される' do
-        @task.importance_status_id = 1 
+        @task.importance_status_id = 1
         expect(response.body).to include('important-image')
       end
-      
+
       it '緊急度が高いタスクは緊急アイコンが表示される' do
         @subtask.update(subtask_deadline: 2.days.from_now.to_date)
-        expect(response.body).to include("pato-image")
+        expect(response.body).to include('pato-image')
       end
-      
     end
   end
 end

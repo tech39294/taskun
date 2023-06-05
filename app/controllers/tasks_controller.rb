@@ -16,7 +16,6 @@ class TasksController < ApplicationController
     @tasks = emergent_tasks + important_tasks + other_tasks
   end
 
-
   def new
     @task = Task.new
     @task.subtasks.build
