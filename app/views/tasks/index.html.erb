@@ -4,32 +4,30 @@
       <%= render "side_bar" %>
     </div>
     <div class="main_content">
-        <div class="tasks">
+      <div class="tasks">
+        <% @tasks.each do |task| %>
           <div class="task">
+            <div class="emergency-icon">
+              <% task.subtasks.each do |subtask| %>
+                <% if subtask.subtask_deadline.present? && subtask.subtask_deadline <= 3.days.from_now %>
+                  <%= image_tag 'pato_lamp_on_red.png', alt: 'サンプル画像です', class: 'pato-image' %>
+                <% end %>
+              <% end %>
+            </div>
+            <div class="importance-icon">
+              <% if task.importance_status_id == 1 %>
+                <%= image_tag 'important.png', alt: 'サンプル画像です', class: 'important-image' %>
+              <% end %>
+            </div>
             <div class="task-deadline">
-              6/20
+              <%= task.task_deadline%>
             </div>
             <div class="task-title">
-              テックキャンプのオリジナルアプリ作成
+              <%= task.task_title %>
             </div>
           </div>
-          <div class="task">
-            <div class="task-deadline">
-              6/27
-            </div>
-            <div class="task-title">
-              夏野菜を育てて収穫するプロジェクト（茄子、トマト、きゅうり、ピーマン、おくら、ゴーヤ）
-            </div>
-          </div>
-          <div class="task">
-            <div class="task-deadline">
-              12/1
-            </div>
-            <div class="task-title">
-              秋野菜を育てて収穫するプロジェクト（さつまいも、じゃがいも、大根）
-            </div>
-          </div>
-        </div>
+        <% end %>
       </div>
+    </div>
   </div>
 </body>

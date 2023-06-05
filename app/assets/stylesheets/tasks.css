@@ -71,6 +71,24 @@
   text-overflow: ellipsis; 
 }
 
+.importance-icon{
+  min-width: 50px;
+}
+
+.emergency-icon{
+  min-width: 50px;
+}
+
+.pato-image{
+  width: 30px;
+  height: 30px;
+ }
+
+ .important-image{
+  width: 30px;
+  height: 30px;
+ }
+
 /******************************************** 
   showのメインコンテンツ
 *********************************************/
