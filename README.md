@@ -29,6 +29,7 @@ https://taskun.onrender.com
 上記を解決するために、一覧機能・タスクの分解機能・アラート機能を有するアプリケーションを開発することとした。
 
 # 洗い出した要件
+https://docs.google.com/spreadsheets/d/137tGmt9njbxhmM39MsPwI85IQpw75gF9qO51ByF4n4Q/edit?usp=sharing
 
 # 実装した機能
 タスク新規投稿機能
