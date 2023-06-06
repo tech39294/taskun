@@ -1,0 +1,76 @@
+<body>
+  <div class="wrapper">
+    <div class ="side-bar">
+      <%= render "side_bar" %>
+    </div>
+    <div class="main_content">
+      <div class="task">
+        <div class="emergency-icon">
+          <% @task.subtasks.each do |subtask| %>
+            <% if subtask.subtask_deadline.present? && subtask.subtask_deadline <= 3.days.from_now %>
+              <%= image_tag 'pato_lamp_on_red.png', alt: 'サンプル画像です', class: 'pato-image' %>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="importance-icon">
+          <% if @task.importance_status_id == 1 %>
+            <%= image_tag 'important.png', alt: 'サンプル画像です', class: 'important-image' %>
+          <% end %>
+        </div>
+        <div class="task-deadline">
+          <%= @task.task_deadline%>
+        </div>
+        <div class="task-title">
+          <%= @task.task_title %>
+        </div>
+      </div>
+      <div class="subtasks">
+      <% @subtasks.each do |subtask| %>
+        <div class="subtask">
+            <div class="emergency-icon">
+            <% @task.subtasks.each do |subtask| %>
+              <% if subtask.subtask_deadline.present? && subtask.subtask_deadline <= 3.days.from_now %>
+                <%= image_tag 'pato_lamp_on_red.png', alt: 'サンプル画像です', class: 'pato-image' %>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="importance-icon">
+            <% if @task.importance_status_id == 1 %>
+              <%= image_tag 'important.png', alt: 'サンプル画像です', class: 'important-image' %>
+            <% end %>
+          </div>
+          <div class="subtask-deadline">
+            <%= subtask.subtask_deadline %>
+          </div>
+          <div class="subtask-title">
+            <%= subtask.subtask_title %>
+          </div>
+        </div>
+      <% end %>
+      </div>
+
+      <div class="task-importance">
+        <% if @task.importance_status_id == 1 %>
+          <span class="importance-status">重要度: 高</span>
+        <% elsif @task.importance_status_id == 2 %>
+          <span class="importance-status">重要度: 低</span>
+        <% end %>
+      </div>
+
+      <div class="memo">
+        <div class="memo-title">
+          Memo
+        </div>
+        <div class="memo-content">
+          <%= @task.memo %>
+        </div>
+      </div>
+      <div class="buttons">
+        <button class="edit-button">編集</button>
+        <button class="delete-button">削除</button>
+        <button class="share-button">共有</button> 
+        <button class="consult-button">相談</button> 
+      </div>
+    </div>
+  </div>
+</body>

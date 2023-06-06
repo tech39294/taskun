@@ -35,6 +35,11 @@ class TasksController < ApplicationController
     end
   end
 
+  def show
+    @task = Task.find(params[:id])
+    @subtasks = @task.subtasks
+  end
+
   private
 
   def task_params
