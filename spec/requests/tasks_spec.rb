@@ -50,25 +50,25 @@ RSpec.describe 'Tasks', type: :request do
       @task = FactoryBot.create(:task, user: @user)
       @subtask = FactoryBot.create(:subtask, task: @task)
     end
-  
+
     context 'ログインしていない場合' do
       it 'ログインページにリダイレクトすること' do
         get task_path(@task.id)
         expect(response).to redirect_to(new_user_session_path)
       end
     end
-  
+
     context 'ログインしている場合' do
       before do
         sign_in @user
       end
-  
+
       context 'タスクの投稿者の場合' do
         it '詳細表示ページへ遷移すること' do
           get task_path(@task.id)
           expect(response.status).to eq 200
         end
-  
+
         it 'タスクの詳細が表示されること' do
           get task_path(@task.id)
           expect(response.body).to include(@task.task_title)
@@ -77,7 +77,7 @@ RSpec.describe 'Tasks', type: :request do
         end
       end
     end
-  
+
     context 'タスクの投稿者ではない場合' do
       let(:other_user) { FactoryBot.create(:user) }
       let(:other_task) { FactoryBot.create(:task, user: other_user) }
@@ -90,4 +90,4 @@ RSpec.describe 'Tasks', type: :request do
       end
     end
   end
-end  
+end
