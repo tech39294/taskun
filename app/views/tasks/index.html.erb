@@ -23,7 +23,7 @@
               <%= task.task_deadline%>
             </div>
             <div class="task-title">
-              <%= task.task_title %>
+              <%= link_to task.task_title, task_path(task.id) %>
             </div>
           </div>
         <% end %>

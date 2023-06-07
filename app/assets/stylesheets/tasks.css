@@ -89,6 +89,11 @@
   height: 30px;
  }
 
+ .task-title a {
+  color: black;
+  text-decoration: none;
+}
+
 /******************************************** 
   showのメインコンテンツ
 *********************************************/
@@ -103,6 +108,11 @@
 .subtask-deadline {
   width: 150px;
   padding-left: 20px; 
+}
+
+.importance-status{
+  padding: 0 0 0 20px;
+  font-size: 20px;
 }
 
 .memo {
@@ -130,6 +140,7 @@
   height: 180px;
   resize: none; 
   overflow: auto; 
+  text-align: left;
 }
 
 .buttons {
@@ -156,20 +167,19 @@
 .task {
   width: 100%;
   padding: 20px;
-  background-color: #f7f7f7;
+  background-color: #dcdcdc;
 }
 
 .subtasks {
   width: 100%;
-  padding: 0 0 0 20px;
-  background-color: #f7f7f7;
 }
 
 .subtask{
-  height:80px;
+  height:60px;
   width: 100%;
   padding: 0 0 0 20px;
   margin-bottom:20px;
+  background-color: #f5f5f5;
 }
 
 .subtask-title{
