@@ -44,10 +44,25 @@ class TasksController < ApplicationController
     redirect_to tasks_path
   end
 
+  def edit
+    @task = Task.find(params[:id])
+    @subtasks = @task.subtasks
+  end
+  
+  def update
+    @task = Task.find(params[:id])
+    @subtasks = @task.subtasks    
+    if @task.update(task_params)
+      redirect_to task_path(@task)
+    else
+      render :edit
+    end
+  end
+
   private
 
   def task_params
     params.require(:task).permit(:task_title, :task_deadline, :importance_status_id, :memo, :task_template_id,
-                                 subtasks_attributes: [:subtask_title, :subtask_deadline]).merge(user_id: current_user.id)
+                                 subtasks_attributes: [:id, :subtask_title, :subtask_deadline]).merge(user_id: current_user.id)
   end
 end

@@ -148,7 +148,6 @@
   margin-top: 10px;
 }
 
-.edit-button,
 .delete-button,
 .share-button,
 .consult-button {
@@ -159,6 +158,37 @@
   margin-bottom: 5px; 
   margin-left:10px;
 }
+
+.edit-button {
+  width:70px;
+  height:35px;
+  line-height:35px;
+  display: inline-block;
+  background-color: gray;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  user-select: none;
+  border: 1px solid #ced4da;
+  font-size: 16px; 
+  border-radius: 4px;
+}
+
+.back-button{
+  width:70px;
+  height:35px;
+  line-height:35px;
+  display: inline-block;
+  background-color: gray;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  user-select: none;
+  border: 1px solid #ced4da;
+  font-size: 16px; 
+  border-radius: 4px;
+}
+
 
 /******************************************** 
   新規投稿画面

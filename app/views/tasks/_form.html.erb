@@ -47,8 +47,10 @@
     </div>
   </div>
 
-  <div class="buttons">
+  <div class="edit-buttons">
     <%= f.submit "更新", class: "edit-button" %>
+    <%= link_to 'もどる', task_path(@task), class: "back-button" %>
   </div>
+
 <% end %>
 
