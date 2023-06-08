@@ -1,5 +1,7 @@
 class TasksController < ApplicationController
-  before_action :authenticate_user!, only: [:index, :new, :show]
+  before_action :authenticate_user!, only: [:index, :new, :show, :edit]
+  before_action :restrict_access, only: [:edit]
+
 
   def index
     urgent_important_tasks = current_user.tasks.includes(:subtasks)
@@ -56,6 +58,13 @@ class TasksController < ApplicationController
       redirect_to task_path(@task)
     else
       render :edit
+    end
+  end
+
+  def restrict_access
+    @task = Task.find(params[:id])
+    if current_user != @task.user
+      redirect_to tasks_path
     end
   end
 
