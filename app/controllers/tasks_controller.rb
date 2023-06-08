@@ -1,6 +1,8 @@
 class TasksController < ApplicationController
   before_action :authenticate_user!, only: [:index, :new, :show, :edit]
   before_action :restrict_access, only: [:edit]
+  before_action :set_task, only: [:show, :edit, :update]
+
 
 
   def index
@@ -38,22 +40,14 @@ class TasksController < ApplicationController
   end
 
   def show
-    @task = Task.find(params[:id])
-    @subtasks = @task.subtasks
-
     return if @task.user_id == current_user.id
-
     redirect_to tasks_path
   end
 
   def edit
-    @task = Task.find(params[:id])
-    @subtasks = @task.subtasks
   end
   
-  def update
-    @task = Task.find(params[:id])
-    @subtasks = @task.subtasks    
+  def update  
     if @task.update(task_params)
       redirect_to task_path(@task)
     else
@@ -69,6 +63,11 @@ class TasksController < ApplicationController
   end
 
   private
+
+  def set_task
+    @task = Task.find(params[:id])
+    @subtasks = @task.subtasks
+  end
 
   def task_params
     params.require(:task).permit(:task_title, :task_deadline, :importance_status_id, :memo, :task_template_id,
