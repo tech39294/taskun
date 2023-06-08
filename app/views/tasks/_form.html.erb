@@ -12,6 +12,7 @@
 
   <div id="subtasks-container">
   <%= f.fields_for :subtasks do |subtask_f| %> 
+    <%= subtask_f.hidden_field :id %>
     <div class="subtask">
       <div class="subtask-deadline">
         <%= subtask_f.date_field :subtask_deadline, placeholder: "期限" %>
