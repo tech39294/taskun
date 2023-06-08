@@ -12,6 +12,7 @@
 
   <div id="subtasks-container">
   <%= f.fields_for :subtasks do |subtask_f| %> 
+    <%= subtask_f.hidden_field :id %>
     <div class="subtask">
       <div class="subtask-deadline">
         <%= subtask_f.date_field :subtask_deadline, placeholder: "期限" %>
@@ -46,8 +47,14 @@
     </div>
   </div>
 
-  <div class="buttons">
+  <div class="edit-buttons">
     <%= f.submit "更新", class: "edit-button" %>
+    <% if @task.new_record? %>
+      <%= link_to 'もどる', tasks_path, class: "back-button" %>
+    <% else %>
+      <%= link_to 'もどる', task_path(@task), class: "back-button" %>
+    <% end %>
   </div>
+
 <% end %>
 

@@ -34,6 +34,7 @@ RSpec.describe 'Tasks', type: :request do
 
       it '重要度が高いタスクはパトランプが表示される' do
         @task.importance_status_id = 1
+        @task.save
         expect(response.body).to include('important-image')
       end
 
@@ -87,6 +88,59 @@ RSpec.describe 'Tasks', type: :request do
         sign_in other_user
         get task_path(@task.id)
         expect(response).to redirect_to(tasks_path)
+      end
+    end
+  end
+
+  describe 'GET #edit' do
+    before do
+      @user = FactoryBot.create(:user)
+      @task = FactoryBot.create(:task, user: @user)
+      @another_task = FactoryBot.create(:task)
+    end
+    context '編集ができる場合' do
+      it 'ログイン状態で自身が投稿したタスクの編集ページに遷移しようとした場合遷移できる' do
+        sign_in @user
+        get edit_task_path(@task)
+        expect(response).to have_http_status(:ok)
+      end
+
+      it '必要な情報が適切に入力されていればタスク情報を編集できる' do
+        sign_in @user
+        patch task_path(@task), params: { task: { task_title: 'updated_title' } }
+        expect(Task.find(@task.id).task_title).to eq 'updated_title'
+      end
+
+      it 'タスク詳細ページへ遷移する' do
+        sign_in @user
+        patch task_path(@task), params: { task: { title: 'updated_title' } }
+        expect(response).to redirect_to task_path(@task)
+      end
+    end
+
+    context '編集ができない場合' do
+      it 'ログイン状態でも自身が投稿していないタスクの編集ページに遷移しようとした場合トップページに遷移する' do
+        sign_in @user
+        get edit_task_path(@another_task)
+        expect(response).to redirect_to tasks_path
+      end
+
+      it 'ログアウト状態で編集ページに遷移しようとした場合ログインページに遷移する' do
+        get edit_task_path(@task)
+        expect(response).to redirect_to new_user_session_path
+      end
+
+      it '何も編集せずに更新を試みた場合元の状態が維持される' do
+        original_title = @task.task_title
+        sign_in @user
+        patch task_path(@task), params: { task: { task_title: 'original_title' } }
+        expect(Task.find(@task.id).task_title).to eq 'original_title'
+      end
+
+      it '空の入力欄がある場合編集できずにそのページに留まる' do
+        sign_in @user
+        patch task_path(@task), params: { task: { task_title: '' } }
+        expect(@task.reload.task_title).not_to eq('')
       end
     end
   end

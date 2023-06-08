@@ -6,10 +6,8 @@
     <div class="main_content">
       <div class="task">
         <div class="emergency-icon">
-          <% @task.subtasks.each do |subtask| %>
-            <% if subtask.subtask_deadline.present? && subtask.subtask_deadline <= 3.days.from_now %>
-              <%= image_tag 'pato_lamp_on_red.png', alt: 'サンプル画像です', class: 'pato-image' %>
-            <% end %>
+          <% if @task.subtasks.any? { |subtask| subtask.subtask_deadline.present? && subtask.subtask_deadline <= 3.days.from_now } %>
+            <%= image_tag 'pato_lamp_on_red.png', alt: 'サンプル画像です', class: 'pato-image' %>
           <% end %>
         </div>
         <div class="importance-icon">
@@ -27,11 +25,9 @@
       <div class="subtasks">
       <% @subtasks.each do |subtask| %>
         <div class="subtask">
-            <div class="emergency-icon">
-            <% @task.subtasks.each do |subtask| %>
-              <% if subtask.subtask_deadline.present? && subtask.subtask_deadline <= 3.days.from_now %>
-                <%= image_tag 'pato_lamp_on_red.png', alt: 'サンプル画像です', class: 'pato-image' %>
-              <% end %>
+          <div class="emergency-icon">
+            <% if subtask.subtask_deadline.present? && subtask.subtask_deadline <= 3.days.from_now %>
+              <%= image_tag 'pato_lamp_on_red.png', alt: 'サンプル画像です', class: 'pato-image' %>
             <% end %>
           </div>
           <div class="importance-icon">
@@ -66,7 +62,7 @@
         </div>
       </div>
       <div class="buttons">
-        <button class="edit-button">編集</button>
+        <%= link_to '編集', edit_task_path(@task), class: 'edit-button' %>
         <button class="delete-button">削除</button>
         <button class="share-button">共有</button> 
         <button class="consult-button">相談</button> 
