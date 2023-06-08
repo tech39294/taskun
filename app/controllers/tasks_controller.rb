@@ -3,8 +3,6 @@ class TasksController < ApplicationController
   before_action :restrict_access, only: [:edit]
   before_action :set_task, only: [:show, :edit, :update]
 
-
-
   def index
     urgent_important_tasks = current_user.tasks.includes(:subtasks)
                                          .where(importance_status_id: 1, subtasks: { subtask_deadline: Date.today..(Date.today + 3.days) })
@@ -41,13 +39,14 @@ class TasksController < ApplicationController
 
   def show
     return if @task.user_id == current_user.id
+
     redirect_to tasks_path
   end
 
   def edit
   end
-  
-  def update  
+
+  def update
     if @task.update(task_params)
       redirect_to task_path(@task)
     else
@@ -57,9 +56,9 @@ class TasksController < ApplicationController
 
   def restrict_access
     @task = Task.find(params[:id])
-    if current_user != @task.user
-      redirect_to tasks_path
-    end
+    return unless current_user != @task.user
+
+    redirect_to tasks_path
   end
 
   private

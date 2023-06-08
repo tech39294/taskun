@@ -92,7 +92,7 @@ RSpec.describe 'Tasks', type: :request do
     end
   end
 
-  describe "GET #edit" do
+  describe 'GET #edit' do
     before do
       @user = FactoryBot.create(:user)
       @task = FactoryBot.create(:task, user: @user)
@@ -119,7 +119,6 @@ RSpec.describe 'Tasks', type: :request do
     end
 
     context '編集ができない場合' do
-
       it 'ログイン状態でも自身が投稿していないタスクの編集ページに遷移しようとした場合トップページに遷移する' do
         sign_in @user
         get edit_task_path(@another_task)
