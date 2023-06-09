@@ -159,7 +159,7 @@
   margin-left:10px;
 }
 
-.edit-button {
+.edit-destroy-button {
   width:70px;
   height:35px;
   line-height:35px;
@@ -171,6 +171,7 @@
   user-select: none;
   border: 1px solid #ced4da;
   font-size: 16px; 
+  margin:0 0 0 10px;
   border-radius: 4px;
 }
 
