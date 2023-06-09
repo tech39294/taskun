@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
-  before_action :authenticate_user!, only: [:index, :new, :show, :edit, :destory]
-  before_action :restrict_access, only: [:edit, :destory]
+  before_action :authenticate_user!, only: [:index, :new, :show, :edit, :destroy]
+  before_action :restrict_access, only: [:edit, :destroy]
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   def index
