@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
-  before_action :authenticate_user!, only: [:index, :new, :show, :edit]
-  before_action :restrict_access, only: [:edit]
-  before_action :set_task, only: [:show, :edit, :update]
+  before_action :authenticate_user!, only: [:index, :new, :show, :edit, :destroy]
+  before_action :restrict_access, only: [:edit, :destroy]
+  before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   def index
     urgent_important_tasks = current_user.tasks.includes(:subtasks)
@@ -54,10 +54,9 @@ class TasksController < ApplicationController
     end
   end
 
-  def restrict_access
-    @task = Task.find(params[:id])
-    return unless current_user != @task.user
-
+  def destroy
+    @subtasks.destroy_all
+    @task.destroy
     redirect_to tasks_path
   end
 
@@ -66,6 +65,13 @@ class TasksController < ApplicationController
   def set_task
     @task = Task.find(params[:id])
     @subtasks = @task.subtasks
+  end
+
+  def restrict_access
+    @task = Task.find(params[:id])
+    return unless current_user != @task.user
+
+    redirect_to tasks_path
   end
 
   def task_params
