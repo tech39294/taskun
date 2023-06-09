@@ -36,7 +36,7 @@ RSpec.describe 'Tasks', type: :request do
         @user = FactoryBot.create(:user)
         @task = FactoryBot.create(:task, user: @user, importance_status_id: 1)
         @subtask = FactoryBot.create(:subtask, task: @task)
-      
+
         expect(response.body).to include('important-image')
       end
 
@@ -147,7 +147,7 @@ RSpec.describe 'Tasks', type: :request do
     end
   end
 
-  describe "DELETE #destroy" do
+  describe 'DELETE #destroy' do
     before do
       @user = FactoryBot.create(:user)
       @task = FactoryBot.create(:task, user: @user)
@@ -155,37 +155,37 @@ RSpec.describe 'Tasks', type: :request do
       @other_task = FactoryBot.create(:task, user: @other_user)
     end
 
-    context "ログイン状態かつ自分が投稿した場合" do
+    context 'ログイン状態かつ自分が投稿した場合' do
       before do
         sign_in @user
       end
 
-      it "自身が投稿したタスクを削除できること" do
-        expect {delete task_path(@task)}.to change(Task, :count).by(-1)
+      it '自身が投稿したタスクを削除できること' do
+        expect { delete task_path(@task) }.to change(Task, :count).by(-1)
       end
 
-      it "削除が完了するとトップページへ遷移すること" do
+      it '削除が完了するとトップページへ遷移すること' do
         delete task_path(@task)
         expect(response).to redirect_to(tasks_path)
       end
     end
 
-    context "ログアウト状態の場合" do
-      it "ログインページにリダイレクトされること" do
+    context 'ログアウト状態の場合' do
+      it 'ログインページにリダイレクトされること' do
         delete task_path(@task)
         expect(response).to redirect_to new_user_session_path
       end
     end
 
-    context "他のユーザーが投稿した場合" do
+    context '他のユーザーが投稿した場合' do
       before do
         sign_in @user
       end
 
-      it "自身が投稿したタスク以外の削除はできないこと" do
-        expect {
+      it '自身が投稿したタスク以外の削除はできないこと' do
+        expect do
           delete task_path(@other_task)
-        }.not_to change(Task, :count)
+        end.not_to change(Task, :count)
       end
     end
   end
