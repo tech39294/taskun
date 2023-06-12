@@ -63,4 +63,8 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+  require 'capybara/rspec'
+  require 'capybara/rails'
+  config.include Capybara::DSL, type: :request
+  Capybara.javascript_driver = :selenium
 end
