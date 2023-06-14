@@ -19,7 +19,6 @@ class TaskTemplatesController < ApplicationController
 
   def task_template_params
     params.require(:task_template).permit(:task_template_title, :task_template_days,
-                                 subtask_templates_attributes: [:id, :subtask_template_title, :subtask_template_days, :_destroy]).merge(user_id: current_user.id)                                
+                                          subtask_templates_attributes: [:id, :subtask_template_title, :subtask_template_days, :_destroy]).merge(user_id: current_user.id)
   end
-
 end

@@ -26,15 +26,17 @@ RSpec.describe TaskTemplate, type: :model do
       end
 
       it 'サブタスクの日数だけでは保存できない' do
-        @task_template.subtask_templates = [FactoryBot.build(:subtask_template, subtask_template_title: Faker::Lorem.sentence, subtask_template_days: nil)]
+        @task_template.subtask_templates = [FactoryBot.build(:subtask_template, subtask_template_title: Faker::Lorem.sentence,
+                                                                                subtask_template_days: nil)]
         @task_template.valid?
-        expect(@task_template.errors.full_messages).to include("Subtask templates base Subtask title and deadline must be both present or absent")
+        expect(@task_template.errors.full_messages).to include('Subtask templates base Subtask title and deadline must be both present or absent')
       end
-    
+
       it 'サブタスクのタイトルだけでは保存できない' do
-        @task_template.subtask_templates = [FactoryBot.build(:subtask_template, subtask_template_title: nil, subtask_template_days: Faker::Number.between(from: 1, to: 30))]
+        @task_template.subtask_templates = [FactoryBot.build(:subtask_template, subtask_template_title: nil,
+                                                                                subtask_template_days: Faker::Number.between(from: 1, to: 30))]
         @task_template.valid?
-        expect(@task_template.errors.full_messages).to include("Subtask templates base Subtask title and deadline must be both present or absent")
+        expect(@task_template.errors.full_messages).to include('Subtask templates base Subtask title and deadline must be both present or absent')
       end
     end
   end

@@ -6,7 +6,9 @@ class SubtaskTemplate < ApplicationRecord
   private
 
   def title_and_deadline_must_be_both_present_or_absent
-    return unless (subtask_template_title.blank? && subtask_template_days.present?) || (subtask_template_title.present? && subtask_template_days.blank?)
+    unless (subtask_template_title.blank? && subtask_template_days.present?) || (subtask_template_title.present? && subtask_template_days.blank?)
+      return
+    end
 
     errors.add(:base, 'Subtask title and deadline must be both present or absent')
   end

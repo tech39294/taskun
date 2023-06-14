@@ -5,4 +5,3 @@ FactoryBot.define do
     user { association(:user) }
   end
 end
-

@@ -190,19 +190,19 @@ RSpec.describe 'Tasks', type: :request do
     end
   end
 
-  describe "GET /tasks/:id" do
+  describe 'GET /tasks/:id' do
     before do
       @user = FactoryBot.create(:user)
       @task = FactoryBot.create(:task, user: @user)
     end
-    context "共有ボタンがクリックされた場合" do
-      it "共有文書が表示される" do
+    context '共有ボタンがクリックされた場合' do
+      it '共有文書が表示される' do
         sign_in @user
 
         get task_path(@task)
 
         expect(response).to have_http_status(200)
-        expect(response.body).to include("共有")
+        expect(response.body).to include('共有')
 
         find('.share-button').click
 
@@ -212,4 +212,3 @@ RSpec.describe 'Tasks', type: :request do
     end
   end
 end
-
