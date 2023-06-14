@@ -1,0 +1,2 @@
+class SubtaskTemplatesController < ApplicationController
+end
