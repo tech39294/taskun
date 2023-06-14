@@ -183,6 +183,7 @@ height: 30px;
   border-radius: 4px;
 }
 
+.edit-button,
 .back-button{
   width:70px;
   height:35px;
@@ -190,6 +191,7 @@ height: 30px;
   display: inline-block;
   background-color: gray;
   color: white;
+  margin: 10px 0 0 10px;
   text-decoration: none;
   text-align: center;
   user-select: none;
@@ -326,3 +328,39 @@ button {
   border-radius: 5px;
   cursor: pointer;
 }
+
+
+/******************************************** 
+  テンプレート新規作成画面
+*********************************************/
+.task-template-days {
+  width: 200px;
+}
+
+.task-template-title {
+  width: 100% ; 
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+}
+
+.subtask-template-days {
+  width: 200px;
+}
+
+.subtask-template-title {
+  width: 100% ; 
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+}
+
+#add-subtask-template-button {
+  margin: 0 0 20px 20px;
+}
+
+.task-template-days input[type=number],
+.subtask-template-days input[type=number] {
+  height: 30px; 
+}
+
