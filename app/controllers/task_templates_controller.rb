@@ -1,4 +1,6 @@
 class TaskTemplatesController < ApplicationController
+  before_action :authenticate_user!, only: [:new]
+
   def new
     @task_template = TaskTemplate.new
     @task_template.subtask_templates.build
