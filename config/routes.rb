@@ -7,5 +7,10 @@ Rails.application.routes.draw do
   resources :tasks do
     resources :subtasks
   end
+
+  resources :task_templates do
+    resources :subtask_templates
+  end
+
 end
 

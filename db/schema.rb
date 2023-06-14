@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_06_02_155856) do
+ActiveRecord::Schema.define(version: 2023_06_14_045137) do
+
+  create_table "subtask_templates", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "subtask_template_days", null: false
+    t.string "subtask_template_title", null: false
+    t.bigint "task_template_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["task_template_id"], name: "index_subtask_templates_on_task_template_id"
+  end
 
   create_table "subtasks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "subtask_title"
@@ -19,6 +28,15 @@ ActiveRecord::Schema.define(version: 2023_06_02_155856) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["task_id"], name: "index_subtasks_on_task_id"
+  end
+
+  create_table "task_templates", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "task_template_days", null: false
+    t.string "task_template_title", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_task_templates_on_user_id"
   end
 
   create_table "tasks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -45,6 +63,8 @@ ActiveRecord::Schema.define(version: 2023_06_02_155856) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "subtask_templates", "task_templates"
   add_foreign_key "subtasks", "tasks"
+  add_foreign_key "task_templates", "users"
   add_foreign_key "tasks", "users"
 end

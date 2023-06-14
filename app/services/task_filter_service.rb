@@ -5,8 +5,8 @@ class TaskFilterService
 
   def filtered_tasks
     urgent_important_tasks = Task.includes(:subtasks)
-                                .where(importance_status_id: 1, subtasks: { subtask_deadline: Date.today..(Date.today + 3.days) })
-                                .order(task_deadline: :asc)
+                                 .where(importance_status_id: 1, subtasks: { subtask_deadline: Date.today..(Date.today + 3.days) })
+                                 .order(task_deadline: :asc)
 
     urgent_tasks = Task.includes(:subtasks)
                        .where(importance_status_id: 2, subtasks: { subtask_deadline: Date.today..(Date.today + 3.days) })
