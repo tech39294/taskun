@@ -6,21 +6,23 @@
 
     <div class="main_content">
       <h1 class ="page-title">テンプレート検索</h1>
-      <div class="search-form">
-        <input type="text" id="search-input" placeholder="キーワードを入力して検索">
-        <button id="search-button">検索</button>
-      </div>
+      <%= form_with(url: search_task_templates_path, local: true, method: :get, class: "search-form") do |form| %>
+        <%= form.text_field :keyword, placeholder: "キーワードを入力して検索", class: "search-input", id: "search-input" %>
+        <%= form.submit "検索", class: "search-button", id: "search-button" %>
+      <% end %>
+
       <div id="template-results">
-        <div class="template">
-          <div class="template-title">オリジナルアプリを３週間で作成する</div>
-        </div>
-        <div class="template">
-          <div class="template-title">オリジナルアプリを４週間で作成する</div>
-        </div>
-        <div class="template">
-          <div class="template-title">オリジナルアプリを三日間で作成する</div>
-        </div>
+        <% if @task_templates.present? %>
+          <% @task_templates.each do |template| %>
+            <div class="template">
+              <div class="template-title"><%= template.task_template_title %></div>
+            </div>
+          <% end %>
+        <% else %>
+          <p class="no-results">検索結果はありません。</p>
+        <% end %>
       </div>
+
       <!-- テンプレート作成ボタン -->
       <div class="template-create-button">
         <button>テンプレート作成</button>

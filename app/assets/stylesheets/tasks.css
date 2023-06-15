@@ -364,3 +364,15 @@ button {
   height: 30px; 
 }
 
+/******************************************** 
+  テンプレート検索画面
+*********************************************/
+.no-results {
+  font-size: 20px;
+  text-align: center;
+}
+
+.template-title{
+  font-size: 16px;
+}
+
