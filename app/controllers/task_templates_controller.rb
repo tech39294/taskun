@@ -15,6 +15,10 @@ class TaskTemplatesController < ApplicationController
     end
   end
 
+  def show
+    @task_template = TaskTemplate.includes(:subtask_templates).find(params[:id])
+  end
+
   def search
     @task_templates = TaskTemplate.search(params[:keyword])
     render :index

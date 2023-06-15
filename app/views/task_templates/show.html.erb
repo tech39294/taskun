@@ -1,0 +1,32 @@
+<body>
+  <div class="wrapper">
+    <div class ="side-bar">
+      <%= render "side_bar" %>
+    </div>
+    <div class="main_content">
+      <div class="task">
+        <div class="task-deadline">
+           <%= @task_template.task_template_days %>日間
+        </div>
+        <div class="task-title">
+           <%= @task_template.task_template_title %>
+        </div>
+      </div>
+      <div class="subtasks">
+        <% @task_template.subtask_templates.each_with_index do |subtask, index| %>
+          <div class="subtask">
+            <div class="subtask-deadline">
+              <%= subtask.subtask_template_days %>日間
+            </div>
+            <div class="subtask-title">
+              <%= subtask.subtask_template_title %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div class="template-task">
+        <button class="template-task-new">このテンプレートからタスクを作成</button>
+      </div>
+    </div>
+  </div>
+</body>
