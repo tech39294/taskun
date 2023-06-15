@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   end
 
   resources :task_templates do
+    resources :tasks, only: [:new, :create], controller: 'task_templates/tasks'
     resources :subtask_templates
     collection do
       get 'search'
