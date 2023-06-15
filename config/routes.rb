@@ -10,6 +10,9 @@ Rails.application.routes.draw do
 
   resources :task_templates do
     resources :subtask_templates
+    collection do
+      get 'search'
+    end
   end
 
 end
