@@ -13,14 +13,15 @@
 
   <div id="subtasks-container">
   <%= f.fields_for :subtasks do |subtask_f| %> 
-    <%= subtask_f.hidden_field :id %>
-    <% @task_template.subtask_templates.each do |subtask_template| %>
+  <%= subtask_f.hidden_field :id %>
+    <% @task_template.subtask_templates.each_with_index do |subtask_template, index| %>
       <div class="subtask" data-days="<%= subtask_template.subtask_template_days %>">
+        <%= subtask_f.hidden_field :id %>
         <div class="subtask-deadline">
-          <%= subtask_f.date_field :subtask_deadline, placeholder: "期限" %>
+          <%= subtask_f.date_field :subtask_deadline, placeholder: "期限", name: "task[subtasks_attributes][#{index}][subtask_deadline]" %>
         </div>
         <div class="subtask-title">
-          <%= subtask_f.text_field :subtask_title, value: subtask_template.subtask_template_title, placeholder: "サブタスク名" %>
+          <%= subtask_f.text_field :subtask_title, value: subtask_template.subtask_template_title, placeholder: "サブタスク名", name: "task[subtasks_attributes][#{index}][subtask_title]" %>
         </div>
       </div>
     <% end %>
