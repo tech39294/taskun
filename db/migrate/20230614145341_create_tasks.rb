@@ -6,6 +6,7 @@ class CreateTasks < ActiveRecord::Migration[6.0]
       t.integer :importance_status_id, null: false
       t.text :memo
       t.references :user, null: false, foreign_key: true
+      t.references :task_template, null: false, foreign_key: true
 
       t.timestamps
     end
