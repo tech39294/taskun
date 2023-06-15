@@ -1,0 +1,30 @@
+<body>
+  <div class="wrapper">
+    <div class ="side-bar">
+      <%= render "side_bar" %>
+    </div>
+
+    <div class="main_content">
+      <h1 class ="page-title">テンプレート検索</h1>
+      <div class="search-form">
+        <input type="text" id="search-input" placeholder="キーワードを入力して検索">
+        <button id="search-button">検索</button>
+      </div>
+      <div id="template-results">
+        <div class="template">
+          <div class="template-title">オリジナルアプリを３週間で作成する</div>
+        </div>
+        <div class="template">
+          <div class="template-title">オリジナルアプリを４週間で作成する</div>
+        </div>
+        <div class="template">
+          <div class="template-title">オリジナルアプリを三日間で作成する</div>
+        </div>
+      </div>
+      <!-- テンプレート作成ボタン -->
+      <div class="template-create-button">
+        <button>テンプレート作成</button>
+      </div>
+    </div>
+  </div>
+</body>
