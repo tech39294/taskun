@@ -25,7 +25,7 @@
         <% end %>
       </div>
       <div class="template-task">
-        <button class="template-task-new">このテンプレートからタスクを作成</button>
+        <%= link_to 'このテンプレートからタスクを作成', new_task_template_task_path(@task_template), class: 'template-task-new' %>
       </div>
     </div>
   </div>
