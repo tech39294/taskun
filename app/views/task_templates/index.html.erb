@@ -15,7 +15,7 @@
         <% if @task_templates.present? %>
           <% @task_templates.each do |template| %>
             <div class="template">
-              <div class="template-title"><%= template.task_template_title %></div>
+              <%= link_to template.task_template_title, task_template_path(template), class: 'template-title' %>
             </div>
           <% end %>
         <% else %>
