@@ -1,5 +1,5 @@
 class TaskTemplatesController < ApplicationController
-  before_action :authenticate_user!, only: [:new]
+  before_action :authenticate_user!, only: [:new, :search]
 
   def new
     @task_template = TaskTemplate.new
@@ -13,6 +13,11 @@ class TaskTemplatesController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def search
+    @task_templates = TaskTemplate.search(params[:keyword])
+    render :index
   end
 
   private
