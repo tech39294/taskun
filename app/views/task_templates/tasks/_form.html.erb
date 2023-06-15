@@ -3,8 +3,8 @@
 <%= f.hidden_field :task_template_id, value: @task_template.id %>
 
   <div class="task">
-    <div class="task-deadline">
-      <%= f.date_field :task_deadline, id: "task-deadline", placeholder: "期限" %>
+    <div class="task-deadline" data-days="<%= @task_template.task_template_days %>">
+      <%= f.date_field :task_deadline, id: "task-cal-deadline", placeholder: "期限" %>
     </div>
     <div class="task-title">
       <%= f.text_field :task_title, value: @task.task_title, id: "task-title", placeholder: "タスク名" %>
@@ -15,7 +15,7 @@
   <%= f.fields_for :subtasks do |subtask_f| %> 
     <%= subtask_f.hidden_field :id %>
     <% @task_template.subtask_templates.each do |subtask_template| %>
-      <div class="subtask">
+      <div class="subtask" data-days="<%= subtask_template.subtask_template_days %>">
         <div class="subtask-deadline">
           <%= subtask_f.date_field :subtask_deadline, placeholder: "期限" %>
         </div>
