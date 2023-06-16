@@ -314,10 +314,10 @@ button {
 .template-create-button {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  margin: 120px;
 }
 
-.template-create-button button {
+.button-style {
   width: 200px;
   padding: 10px;
   font-size: 16px;
@@ -325,8 +325,9 @@ button {
   color: #fff;
   border: none;
   border-radius: 5px;
-  cursor: pointer;
+  text-decoration: none;
 }
+
 
 
 /******************************************** 
