@@ -1,5 +1,7 @@
 module TaskTemplates
   class TasksController < ApplicationController
+    before_action :authenticate_user!, only: [:new]
+
     def new
       @task_template = TaskTemplate.find(params[:task_template_id])
       @task = @task_template.tasks.build(task_title: @task_template.task_template_title)

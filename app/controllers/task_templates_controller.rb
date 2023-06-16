@@ -1,5 +1,5 @@
 class TaskTemplatesController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :search]
+  before_action :authenticate_user!, only: [:new, :show, :search]
 
   def new
     @task_template = TaskTemplate.new
