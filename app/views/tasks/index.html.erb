@@ -23,6 +23,13 @@
             <div class="task-title">
               <%= link_to task.task_title, task_path(task.id) %>
             </div>
+
+            <% task.subtasks.each do |subtask| %>
+              <% if subtask.subtask_deadline <= 3.days.from_now %>
+                <div class="hidden" data-subtask-title="<%= subtask.subtask_title %>" data-subtask-deadline="<%= subtask.subtask_deadline %>"></div>
+              <% end %>
+            <% end %>
+
           </div>
         <% end %>
       </div>
