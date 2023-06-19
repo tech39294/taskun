@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_06_14_045137) do
+ActiveRecord::Schema.define(version: 2023_06_15_155856) do
 
   create_table "subtask_templates", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "subtask_template_days", null: false
@@ -45,8 +45,10 @@ ActiveRecord::Schema.define(version: 2023_06_14_045137) do
     t.integer "importance_status_id", null: false
     t.text "memo"
     t.bigint "user_id", null: false
+    t.bigint "task_template_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["task_template_id"], name: "index_tasks_on_task_template_id"
     t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 
@@ -66,5 +68,6 @@ ActiveRecord::Schema.define(version: 2023_06_14_045137) do
   add_foreign_key "subtask_templates", "task_templates"
   add_foreign_key "subtasks", "tasks"
   add_foreign_key "task_templates", "users"
+  add_foreign_key "tasks", "task_templates"
   add_foreign_key "tasks", "users"
 end

@@ -1,0 +1,65 @@
+<%= form_with model: @task, local: true do |f| %>
+<%= render 'shared/error_messages', model: @task %>
+<%= f.hidden_field :task_template_id, value: @task_template.id %>
+
+  <div class="task">
+    <div class="task-deadline" data-days="<%= @task_template.task_template_days %>">
+      <%= f.date_field :task_deadline, id: "task-cal-deadline", placeholder: "期限" %>
+    </div>
+    <div class="task-title">
+      <%= f.text_field :task_title, value: @task.task_title, id: "task-title", placeholder: "タスク名" %>
+    </div>
+  </div>
+
+  <div id="subtasks-container">
+  <%= f.fields_for :subtasks do |subtask_f| %> 
+  <%= subtask_f.hidden_field :id %>
+    <% @task_template.subtask_templates.each_with_index do |subtask_template, index| %>
+      <div class="subtask" data-days="<%= subtask_template.subtask_template_days %>">
+        <%= subtask_f.hidden_field :id %>
+        <div class="subtask-deadline">
+          <%= subtask_f.date_field :subtask_deadline, placeholder: "期限", name: "task[subtasks_attributes][#{index}][subtask_deadline]" %>
+        </div>
+        <div class="subtask-title">
+          <%= subtask_f.text_field :subtask_title, value: subtask_template.subtask_template_title, placeholder: "サブタスク名", name: "task[subtasks_attributes][#{index}][subtask_title]" %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+  </div>
+
+
+  <%= button_tag 'サブタスク追加', type: 'button', id: 'add-subtask-button' %>
+
+  <div class="task-form-group">
+    <label>重要度</label>
+    <div class="importance-buttons">
+      <label>
+        <%= f.radio_button :importance_status_id, 1, required: true %> 高
+      </label>
+      <label>
+        <%= f.radio_button :importance_status_id, 2, required: true %> 低
+      </label>
+    </div>
+  </div>
+
+  <div class="memo">
+    <div class="memo-title">
+      Memo
+    </div>
+    <div class="memo-content">
+      <%= f.text_area :memo, id: "memo", rows: 8, style: "height: 120px; width:1300px;", placeholder: "メモの内容" %>
+    </div>
+  </div>
+
+  <div class="edit-buttons">
+    <%= f.submit "更新", class: "edit-button" %>
+    <% if @task.new_record? %>
+      <%= link_to 'もどる', tasks_path, class: "back-button" %>
+    <% else %>
+      <%= link_to 'もどる', task_path(@task), class: "back-button" %>
+    <% end %>
+  </div>
+
+<% end %>
+
