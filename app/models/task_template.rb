@@ -8,11 +8,10 @@ class TaskTemplate < ApplicationRecord
   validates :task_template_days, presence: true
 
   def self.search(search)
-    if search != ""
+    if search != ''
       TaskTemplate.where('task_template_title LIKE(?)', "%#{search}%")
     else
       TaskTemplate.all
     end
   end
-  
 end
