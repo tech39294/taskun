@@ -9,4 +9,8 @@ class Task < ApplicationRecord
   validates :importance_status_id, presence: true, numericality: { only_integer: true }, inclusion: { in: [1, 2] }
 
   validates_associated :subtasks
+
+  def start_time
+    self.task_deadline
+  end
 end
