@@ -1,17 +1,9 @@
-<body>
-  <div class="wrapper">
-    <div class ="side-bar">
-      <%= render "side_bar" %>
-    </div>
-    <div class="calendar">
-      <%= month_calendar events: @tasks do |date, tasks| %>
-        <%= date.day %>
-          <% tasks.each do |task| %>
-            <div class="event">
-              <%= link_to task['task_title'], task_path(task['id']) %>
-            </div>
-          <% end %>
+<div class="calendar">
+  <%= month_calendar events: @tasks do |date, tasks| %>
+    <%= date.day %>
+      <% tasks.each do |task| %>
+        <div class="event">
+          <%= link_to task['task_title'], task_path(task['id']) %>
+        </div>
       <% end %>
-    </div>
-  </div>
-</body>
+  <% end %>

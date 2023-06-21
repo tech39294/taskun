@@ -1,36 +1,29 @@
-<body>
-  <div class="wrapper">
-      <%= render "side_bar" %>
-    <div class="main_content">
-      <div class="tasks">
-        <% @tasks.each do |task| %>
-          <div class="task">
-            <div class="emergency-icon">
-            <% if task.subtasks.any? { |subtask| subtask.subtask_deadline.present? && subtask.subtask_deadline <= 3.days.from_now } %>
-              <%= image_tag 'pato_lamp_on_red.png', alt: 'サンプル画像です', class: 'pato-image' %>
-            <% end %>
-            </div>
-            <div class="importance-icon">
-              <% if task.importance_status_id == 1 %>
-                <%= image_tag 'important.png', alt: 'サンプル画像です', class: 'important-image' %>
-              <% end %>
-            </div>
-            <div class="task-deadline">
-              <%= task.task_deadline%>
-            </div>
-            <div class="task-title">
-              <%= link_to task.task_title, task_path(task.id) %>
-            </div>
-
-            <% task.subtasks.each do |subtask| %>
-              <% if subtask.subtask_deadline.present? && subtask.subtask_deadline <= 3.days.from_now %>
-                <div class="hidden" data-subtask-title="<%= subtask.subtask_title %>" data-subtask-deadline="<%= subtask.subtask_deadline %>"></div>
-              <% end %>
-            <% end %>
-
-          </div>
+<div class="tasks">
+  <% @tasks.each do |task| %>
+    <div class="task">
+      <div class="emergency-icon">
+      <% if task.subtasks.any? { |subtask| subtask.subtask_deadline.present? && subtask.subtask_deadline <= 3.days.from_now } %>
+        <%= image_tag 'pato_lamp_on_red.png', alt: 'サンプル画像です', class: 'pato-image' %>
+      <% end %>
+      </div>
+      <div class="importance-icon">
+        <% if task.importance_status_id == 1 %>
+          <%= image_tag 'important.png', alt: 'サンプル画像です', class: 'important-image' %>
         <% end %>
       </div>
+      <div class="task-deadline">
+        <%= task.task_deadline%>
+      </div>
+      <div class="task-title">
+        <%= link_to task.task_title, task_path(task.id) %>
+      </div>
+
+      <% task.subtasks.each do |subtask| %>
+        <% if subtask.subtask_deadline.present? && subtask.subtask_deadline <= 3.days.from_now %>
+          <div class="hidden" data-subtask-title="<%= subtask.subtask_title %>" data-subtask-deadline="<%= subtask.subtask_deadline %>"></div>
+        <% end %>
+      <% end %>
+
     </div>
-  </div>
-</body>
+  <% end %>
+</div>

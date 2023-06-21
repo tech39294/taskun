@@ -1,11 +1,3 @@
-body {
-  height: 100vh;
-}
-
-html {
-  height: 100vh;
-}
-
 main {
   display: flex;
   flex-wrap: nowrap;
@@ -13,6 +5,12 @@ main {
   max-height: 100vh;
   overflow-x: auto;
   overflow-y: hidden;
+}
+
+.sidebar {
+  position: fixed;
+  height: 100vh;
+  overflow-y: auto;
 }
 
 .b-example-divider {
