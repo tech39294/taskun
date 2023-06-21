@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 2023_06_15_155856) do
     t.integer "importance_status_id", null: false
     t.text "memo"
     t.bigint "user_id", null: false
-    t.bigint "task_template_id", null: false
+    t.bigint "task_template_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["task_template_id"], name: "index_tasks_on_task_template_id"

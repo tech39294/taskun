@@ -22,28 +22,31 @@
           <%= @task.task_title %>
         </div>
       </div>
-      <div class="subtasks">
-      <% @subtasks.each do |subtask| %>
-        <div class="subtask">
-          <div class="emergency-icon">
-            <% if subtask.subtask_deadline.present? && subtask.subtask_deadline <= 3.days.from_now %>
-              <%= image_tag 'pato_lamp_on_red.png', alt: 'サンプル画像です', class: 'pato-image' %>
-            <% end %>
+      
+      <% if @subtasks.present? && @subtasks.any? { |subtask| subtask.subtask_deadline.present? } %>
+        <div class="subtasks">
+        <% @subtasks.each do |subtask| %>
+          <div class="subtask">
+            <div class="emergency-icon">
+              <% if subtask.subtask_deadline.present? && subtask.subtask_deadline <= 3.days.from_now %>
+                <%= image_tag 'pato_lamp_on_red.png', alt: 'サンプル画像です', class: 'pato-image' %>
+              <% end %>
+            </div>
+            <div class="importance-icon">
+              <% if @task.importance_status_id == 1 %>
+                <%= image_tag 'important.png', alt: 'サンプル画像です', class: 'important-image' %>
+              <% end %>
+            </div>
+            <div class="subtask-deadline">
+              <%= subtask.subtask_deadline %>
+            </div>
+            <div class="subtask-title">
+              <%= subtask.subtask_title %>
+            </div>
           </div>
-          <div class="importance-icon">
-            <% if @task.importance_status_id == 1 %>
-              <%= image_tag 'important.png', alt: 'サンプル画像です', class: 'important-image' %>
-            <% end %>
-          </div>
-          <div class="subtask-deadline">
-            <%= subtask.subtask_deadline %>
-          </div>
-          <div class="subtask-title">
-            <%= subtask.subtask_title %>
-          </div>
+        <% end %>
         </div>
       <% end %>
-      </div>
 
       <div class="task-importance">
         <% if @task.importance_status_id == 1 %>

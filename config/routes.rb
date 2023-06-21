@@ -16,5 +16,7 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :calendars, only: [:index]
+
 end
 
