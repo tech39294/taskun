@@ -2,52 +2,16 @@
   画面全体
 *********************************************/
 .wrapper {
+  min-height: 100vh;
   display: flex;
-}
-
-/******************************************** 
-  サイドバー
-*********************************************/
-.side-bar {
-  background-color: #99CC99;
-  width: 250px;
-  height: 100vh;
-}
-
-.menu{
-  height: 100px;
-  display: flex;
-  align-items: center;
-  padding: 0 0 0 25px;
-  font-family: 'Open Sans', sans-serif;
-}
-
-.menu div {
-  font-size: 16px; 
-}
-
-.menu a{
-  text-decoration:none;
-  color: black;
-}
-
-.new-task-link {
-  max-width: 500px;
-  padding: 20px;
-  background-color: #f7f7f7;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.new-task-link a {
-  text-decoration: none;
-  color: black;
 }
 
 /******************************************** 
   indexのメインコンテンツ
 *********************************************/
-.main_content {
-  width: calc(100vw - 300px); 
+.main-content {
+  width: calc(100vw - 280px);
+  margin-left: 280px; 
 }
 
 .task {

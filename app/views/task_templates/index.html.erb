@@ -1,32 +1,22 @@
-<body>
-  <div class="wrapper">
-    <div class ="side-bar">
-      <%= render "side_bar" %>
-    </div>
+<h1 class ="page-title">テンプレート検索</h1>
+<%= form_with(url: search_task_templates_path, local: true, method: :get, class: "search-form") do |form| %>
+  <%= form.text_field :keyword, placeholder: "キーワードを入力して検索", class: "search-input", id: "search-input" %>
+  <%= form.submit "検索", class: "search-button", id: "search-button" %>
+<% end %>
 
-    <div class="main_content">
-      <h1 class ="page-title">テンプレート検索</h1>
-      <%= form_with(url: search_task_templates_path, local: true, method: :get, class: "search-form") do |form| %>
-        <%= form.text_field :keyword, placeholder: "キーワードを入力して検索", class: "search-input", id: "search-input" %>
-        <%= form.submit "検索", class: "search-button", id: "search-button" %>
-      <% end %>
-
-      <div id="template-results">
-        <% if @task_templates.present? %>
-          <% @task_templates.each do |template| %>
-            <div class="template">
-              <%= link_to template.task_template_title, task_template_path(template), class: 'template-title' %>
-            </div>
-          <% end %>
-        <% else %>
-          <p class="no-results">検索結果はありません。</p>
-        <% end %>
+<div id="template-results">
+  <% if @task_templates.present? %>
+    <% @task_templates.each do |template| %>
+      <div class="template">
+        <%= link_to template.task_template_title, task_template_path(template), class: 'template-title' %>
       </div>
+    <% end %>
+  <% else %>
+    <p class="no-results">検索結果はありません。</p>
+  <% end %>
+</div>
 
-      <!-- テンプレート作成ボタン -->
-      <div class="template-create-button">
-        <%= link_to 'テンプレートを作成する', new_task_template_path, class: 'button-style' %>
-      </div>
-    </div>
-  </div>
-</body>
+<!-- テンプレート作成ボタン -->
+<div class="template-create-button">
+  <%= link_to 'テンプレートを作成する', new_task_template_path, class: 'button-style' %>
+</div>
