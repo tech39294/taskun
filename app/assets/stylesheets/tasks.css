@@ -1,4 +1,4 @@
-/******************************************** 
+/* ******************************************* 
   画面全体
 *********************************************/
 .wrapper {
@@ -9,11 +9,89 @@
 /******************************************** 
   indexのメインコンテンツ
 *********************************************/
-.main-content {
-  width: calc(100vw - 280px);
-  margin-left: 280px; 
-  position: relative;
-}
+  /* 共通スタイル */
+  .pato-image,
+  .important-image {
+    display: inline-block;
+    vertical-align: middle;
+    width: 30px;
+    height: 30px;
+  }
+
+  /* メインコンテンツ */
+  .main-content {
+    width: calc(100vw - 280px);
+    margin-left: 280px;
+    position: relative;
+  }
+
+  /* サイドバー */
+  .col-5.ml-3 {
+    width: 100px;
+  }
+
+  /* テーブル */
+
+  .table td,
+  .table th {
+    vertical-align: middle; /* 垂直方向に中央揃え */
+  }
+
+  .table .task-deadline {
+    text-align: left;
+    padding-left:100px; 
+  }
+
+  .table .task-title {
+    text-align: left;
+    padding-left: 100px; 
+  }
+
+  .table th:nth-child(1){
+    width: 80px;
+    padding-left: 20px;
+  }
+
+  .table td:nth-child(1){
+    width: 80px;
+    padding-left: 20px;
+  }
+
+  .table th:nth-child(2) {
+    width: 150px;
+    padding-left: 10px;
+  }
+
+  .table th:nth-child(3) {
+    width: 320px;
+  }
+
+  .table .emergency-icon,
+  .table .importance-icon {
+    width: 20px;
+    text-align: center;
+  }
+
+  .table .emergency-icon img,
+  .table .importance-icon img {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .table td a {
+    color: black; 
+    text-decoration: none;
+  }
+
+  .table td,
+  .table th {
+    height: 50px;
+  }
+
+
+/******************************************** 
+  showのメインコンテンツ
+*********************************************/
 
 .task {
   width: 100%;
@@ -42,27 +120,6 @@
   text-decoration: none;
 }
 
-.importance-icon{
-  min-width: 50px;
-}
-
-.emergency-icon{
-  min-width: 50px;
-}
-
-.pato-image{
-  width: 30px;
-  height: 30px;
- }
-
-.important-image{
-width: 30px;
-height: 30px;
-}
-
-/******************************************** 
-  showのメインコンテンツ
-*********************************************/
 .subtask {
   height: 60px;
   width: 100%;
@@ -222,6 +279,10 @@ button {
 .importance-buttons{
   display:flex;
   padding:0 0 0 20px;
+}
+
+.dropdown-menu-dark {
+  background-color: #343a40 !important;
 }
 
 

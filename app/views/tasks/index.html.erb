@@ -1,31 +1,48 @@
-<div class="main-content">
-  <div class="tasks">
-    <% @tasks.each do |task| %>
-      <div class="task">
-        <div class="emergency-icon">
-        <% if task.subtasks.any? { |subtask| subtask.subtask_deadline.present? && subtask.subtask_deadline <= 3.days.from_now } %>
-          <%= image_tag 'pato_lamp_on_red.png', alt: 'サンプル画像です', class: 'pato-image' %>
-        <% end %>
-        </div>
-        <div class="importance-icon">
-          <% if task.importance_status_id == 1 %>
-            <%= image_tag 'important.png', alt: 'サンプル画像です', class: 'important-image' %>
-          <% end %>
-        </div>
-        <div class="task-deadline">
-          <%= task.task_deadline%>
-        </div>
-        <div class="task-title">
-          <%= link_to task.task_title, task_path(task.id) %>
-        </div>
-
-        <% task.subtasks.each do |subtask| %>
-          <% if subtask.subtask_deadline.present? && subtask.subtask_deadline <= 3.days.from_now %>
-            <div class="hidden" data-subtask-title="<%= subtask.subtask_title %>" data-subtask-deadline="<%= subtask.subtask_deadline %>"></div>
-          <% end %>
-        <% end %>
-
-      </div>
-    <% end %>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ 
+</head>
+ 
+<body>
+  <div class="main-content">
+ 
+    <div class="col-5 ml-3">
+        <table class="table table-hover" style="width: calc(100vw - 280px);">
+            <thead>
+                <tr>
+                    <th>緊急度</th>
+                    <th>重要度</th>
+                    <th>期限</th>
+                    <th>タスク名</th>
+                </tr>
+            </thead>
+              <tbody>
+                <% @tasks.each do |task| %>
+                  <tr>
+                    <td>
+                      <% if task.subtasks.any? { |subtask| subtask.subtask_deadline.present? && subtask.subtask_deadline <= 3.days.from_now } %>
+                        <%= image_tag 'pato_lamp_on_red.png', alt: 'サンプル画像です', class: 'pato-image' %>
+                      <% end %>
+                    </td>
+                    <td>
+                      <% if task.importance_status_id == 1 %>
+                        <%= image_tag 'important.png', alt: 'サンプル画像です', class: 'important-image' %>
+                      <% end %>
+                    </td>
+                    <td><%= task.task_deadline %></td>
+                    <td><%= link_to task.task_title, task_path(task.id) %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+        </table>
+    </div>
   </div>
-</div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+ 
