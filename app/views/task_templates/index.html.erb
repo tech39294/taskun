@@ -1,10 +1,11 @@
-<h1 class ="page-title">テンプレート検索</h1>
-<%= form_with(url: search_task_templates_path, local: true, method: :get, class: "search-form") do |form| %>
+<div class="main-content">
+  <h1 class ="page-title">テンプレート検索</h1>
+  <%= form_with(url: search_task_templates_path, local: true, method: :get, class: "search-form") do |form| %>
   <%= form.text_field :keyword, placeholder: "キーワードを入力して検索", class: "search-input", id: "search-input" %>
   <%= form.submit "検索", class: "search-button", id: "search-button" %>
-<% end %>
+  <% end %>
 
-<div id="template-results">
+  <div id="template-results">
   <% if @task_templates.present? %>
     <% @task_templates.each do |template| %>
       <div class="template">
@@ -14,9 +15,10 @@
   <% else %>
     <p class="no-results">検索結果はありません。</p>
   <% end %>
-</div>
+  </div>
 
-<!-- テンプレート作成ボタン -->
-<div class="template-create-button">
+  <!-- テンプレート作成ボタン -->
+  <div class="template-create-button">
   <%= link_to 'テンプレートを作成する', new_task_template_path, class: 'button-style' %>
+  </div>
 </div>

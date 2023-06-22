@@ -1,49 +1,70 @@
-<div class='account-page' id='account-page'>
-  <div class='account-page__inner clearfix'>
-    <div class='account-page__inner--left account-page__header'>
-      <h2>Create Account</h2>
-      <h5>新規アカウントの作成</h5>
-    </div>
-    <div class='account-page__inner--right user-form'>
-      <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
-        <%= render "devise/shared/error_messages", resource: resource %>
-        <div class='field'>
-          <div class='field-label'>
-            <%= f.label :username%>
-          </div>
-          <div class='field-input'>
-            <%= f.text_field :username, autofocus: true%>
-          </div>
-        </div>
-        <div class='field'>
-          <div class='field-label'>
-            <%= f.label :email%>
-          </div>
-          <div class='field-input'>
-            <%= f.email_field :email%>
-          </div>
-        </div>
-        <div class='field'>
-          <div class='field-label'>
-            <%= f.label :password%>
-            <i>(英数字6文字以上)</i>
-          </div>
-          <div class='field-input'>
-            <%= f.password_field :password, autocomplete: "off"%>
-          </div>
-        </div>
-        <div class='field'>
-          <div class='field-label'>
-            <%= f.label :password_confirmation%>
-          </div>
-          <div class='field-input'>
-            <%= f.password_field :password_confirmation, autocomplete: "off"%>
-          </div>
-        </div>
-        <div class='actions'>
-          <%= f.submit "Create Account", class: 'btn'%>
-        </div>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Hugo 0.84.0">
+  <title>Signup Template · Bootstrap v5.0</title>
+
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sign-in/">
+
+  <!-- Bootstrap core CSS -->
+  <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+
+  <!-- Custom styles for this template -->
+  <link href="signup.css" rel="stylesheet">
+</head>
+
+<div class="main-form">
+  <div class="form-signin">
+    <form action="<%= user_registration_path %>" method="post">
+      <h1 class="appname">Taskun</h1>
+      <h1 class="h3 mb-3 fw-normal">アカウント新規登録</h1>
+
+      <div class="form-floating">
+        <input type="username" class="form-control" id="floatingUsername" name="user[username]" placeholder="Username">
+        <label for="floatingUsername">Username</label>
       </div>
-    <% end %>
+      <div class="form-floating">
+        <input type="email" class="form-control" id="floatingInput" name="user[email]" placeholder="name@example.com">
+        <label for="floatingInput">Email address</label>
+      </div>
+      <div class="form-floating">
+        <input type="password" class="form-control" id="floatingPassword" name="user[password]" placeholder="Password">
+        <label for="floatingPassword">Password(英数字6文字以上)</label>
+      </div>
+      <div class="form-floating">
+        <input type="password" class="form-control" id="floatingPasswordConfirmation" name="user[password_confirmation]" placeholder="Password Confirmation">
+        <label for="floatingPasswordConfirmation">Password</label>
+      </div>
+
+      <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" value="1" name="user[remember_me]"> Remember me
+        </label>
+      </div>
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <button class="w-100 btn btn-lg btn-primary" type="submit">アカウント作成</button>
+      <div class="text-center">
+        <p><a href="/users/sign_in">すでに登録されている方はこちら</a></p>
+      </div>
+      <p class="mt-5 mb-3 text-muted">&copy; 2017–2023</p>
+    </form>
   </div>
 </div>
