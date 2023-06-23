@@ -47,35 +47,22 @@
     padding-left: 100px; 
   }
 
-  .custom-table th:nth-child(1){
-    width: 80px;
-    padding-left: 50px;
-  }
-
+  .custom-table th:nth-child(1),
   .custom-table td:nth-child(1){
-    width: 80px;
+    width: 100px;
     padding-left: 50px;
   }
 
-  .custom-table th:nth-child(2) {
-    width: 150px;
-    padding-left: 20px;
-  }
-
+  .custom-table th:nth-child(2), 
   .custom-table td:nth-child(2) {
-    width: 150px;
+    width: 130px;
     padding-left: 20px;
   }
 
-
-  .custom-table th:nth-child(3) {
-    width: 320px;
-    padding-left: 60px;
-  }
-
+  .custom-table th:nth-child(3),
   .custom-table td:nth-child(3) {
     width: 320px;
-    padding-left: 60px;
+    padding-left: 30px;
   }
 
   .custom-table .emergency-icon,
