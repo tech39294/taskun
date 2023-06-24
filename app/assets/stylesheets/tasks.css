@@ -108,7 +108,7 @@
 }
 
 .task-title {
-  width: 100% ; 
+  width: 960px; 
   white-space: nowrap; 
   overflow: hidden; 
   text-overflow: ellipsis; 
@@ -124,13 +124,16 @@
   width: 100%;
   display: flex;
   align-items: center;
-  padding: 0 0 0 20px;
+  padding: 0 20px 0 20px;
   background-color: #f5f5f5;
   border-bottom: 1px solid lightgray;
 }
 
 .subtask-title{
-  width:100%;
+  width:960px;
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow: ellipsis; 
 }
 
 .subtask-deadline {
@@ -145,7 +148,6 @@
 
 .memo {
   width:100%;
-  margin: 20px 0 0 0;
   text-align: center;
   border: 1px solid gray; 
   display: flex; 
@@ -158,6 +160,7 @@
   height:40px;
   line-height: 40px; 
   font-weight: bold;
+  font-size:15px;
   background-color: lightgray;
   width: 100%;
 }
@@ -179,12 +182,14 @@
 .delete-button,
 .share-button,
 .consult-button {
-  width: 60px;
+  width: 70px;
+  height: 35px;
   padding: 5px 10px;
   border: none;
   border-radius: 5px;
   margin-bottom: 5px; 
   margin-left:10px;
+  font-size:16px;
 }
 
 .edit-destroy-button {
@@ -218,6 +223,16 @@
   border: 1px solid #ced4da;
   font-size: 16px; 
   border-radius: 4px;
+}
+
+.task-importance {
+  display: flex;
+  align-items: center;
+  height: 50px;
+}
+
+.importance-status{
+  font-size:16px;
 }
 
 /******************************************** 
@@ -271,9 +286,14 @@ button {
 }
 
 #add-subtask-button {
-  margin: 0 0 20px 20px;
+  height:35px;
+  margin: 10px 0 20px 20px;
+  font-size:16px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
 
 .importance-buttons{
   display:flex;
@@ -284,6 +304,9 @@ button {
   background-color: #343a40 !important;
 }
 
+.importance-buttons label {
+  margin-right: 10px; /* 右側のスペースを増やす */
+}
 
 /******************************************** 
   テンプレート検索画面
@@ -381,7 +404,13 @@ button {
 }
 
 #add-subtask-template-button {
-  margin: 0 0 20px 20px;
+  height:35px;
+  margin: 10px 0 20px 20px;
+  font-size:16px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .task-template-days input[type=number],
