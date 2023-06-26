@@ -7,23 +7,44 @@
   background-color: transparent;  /* change this line */
   padding-top: 40px;
   padding-bottom: 40px;
-  position: relative;  /* change this line */
+  position: relative;  
 }
 
 .main-form::before {
   content: "";
   position: absolute;
   top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: asset-url('working.jpg');
-  background-repeat: no-repeat;
+  left: 0; 
   background-size: cover;
   background-position: center;
-  filter: grayscale(100%);
+  filter: grayscale(20%);
   opacity: 0.3;
   z-index: -1;
+  width: 100%; 
+  height: 100%; 
+  animation: image_anime 12s ease infinite; /* 12秒のアニメーションを繰り返す */
+}
+
+@keyframes image_anime {
+  0% {
+    background-image: url(working.jpg); /* 背景画像1を指定 */
+  }
+  50% {
+    background-image: url(schedule.jpg); /* 背景画像2を指定 */
+  }
+  100% {
+    background-image: url(hand.jpg); /* 背景画像1を指定 */
+  }
+}
+
+#explanation {
+  transition: opacity 2s ease-in-out;
+  position: absolute;
+  bottom: 7%;
+  left: 50%;
+  transform: translate(-50%);
+  font-size:25px;
+  letter-spacing:-1px;
 }
 
 
@@ -66,4 +87,8 @@
 .text-center p{
   margin-top:10px;
   font-size:15px;
+}
+
+.mt-5{
+  text-align: center;
 }

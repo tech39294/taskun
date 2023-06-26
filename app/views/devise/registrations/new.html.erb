@@ -1,3 +1,4 @@
+<html>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -31,40 +32,62 @@
   <link href="signup.css" rel="stylesheet">
 </head>
 
-<div class="main-form">
-  <div class="form-signin">
-    <form action="<%= user_registration_path %>" method="post">
-      <h1 class="appname">Taskun</h1>
-      <h1 class="h3 mb-3 fw-normal">アカウント新規登録</h1>
+<body>
+  <div class="main-form">
+    <div class="form-signin">
+      <form action="<%= user_registration_path %>" method="post">
+        <h1 class="appname">Taskun</h1>
+        <h1 class="h3 mb-3 fw-normal">アカウント新規登録</h1>
 
-      <div class="form-floating">
-        <input type="username" class="form-control" id="floatingUsername" name="user[username]" placeholder="Username">
-        <label for="floatingUsername">Username</label>
-      </div>
-      <div class="form-floating">
-        <input type="email" class="form-control" id="floatingInput" name="user[email]" placeholder="name@example.com">
-        <label for="floatingInput">Email address</label>
-      </div>
-      <div class="form-floating">
-        <input type="password" class="form-control" id="floatingPassword" name="user[password]" placeholder="Password">
-        <label for="floatingPassword">Password(英数字6文字以上)</label>
-      </div>
-      <div class="form-floating">
-        <input type="password" class="form-control" id="floatingPasswordConfirmation" name="user[password_confirmation]" placeholder="Password Confirmation">
-        <label for="floatingPasswordConfirmation">Password</label>
-      </div>
+        <div class="form-floating">
+          <input type="username" class="form-control" id="floatingUsername" name="user[username]" placeholder="Username">
+          <label for="floatingUsername">Username</label>
+        </div>
+        <div class="form-floating">
+          <input type="email" class="form-control" id="floatingInput" name="user[email]" placeholder="name@example.com">
+          <label for="floatingInput">Email address</label>
+        </div>
+        <div class="form-floating">
+          <input type="password" class="form-control" id="floatingPassword" name="user[password]" placeholder="Password">
+          <label for="floatingPassword">Password(英数字6文字以上)</label>
+        </div>
+        <div class="form-floating">
+          <input type="password" class="form-control" id="floatingPasswordConfirmation" name="user[password_confirmation]" placeholder="Password Confirmation">
+          <label for="floatingPasswordConfirmation">Password</label>
+        </div>
 
-      <div class="checkbox mb-3">
-        <label>
-          <input type="checkbox" value="1" name="user[remember_me]"> Remember me
-        </label>
-      </div>
-      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-      <button class="w-100 btn btn-lg btn-primary" type="submit">アカウント作成</button>
-      <div class="text-center">
-        <p><a href="/users/sign_in">すでに登録されている方はこちら</a></p>
-      </div>
-      <p class="mt-5 mb-3 text-muted">&copy; 2017–2023</p>
-    </form>
+        <div class="checkbox mb-3">
+          <label>
+            <input type="checkbox" value="1" name="user[remember_me]"> Remember me
+          </label>
+        </div>
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <button class="w-100 btn btn-lg btn-primary" type="submit">アカウント作成</button>
+        <div class="text-center">
+          <p><a href="/users/sign_in">すでに登録されている方はこちら</a></p>
+        </div>
+        <p class="mt-5 mb-3 text-muted">&copy; 2017–2023</p>
+      </form>
+    </div>
+    <div id="explanation">
+    </div>
   </div>
-</div>
+
+  <script>
+    const explanationElement = document.getElementById('explanation');
+    const explanations = ['一覧でタスクを確認できるから、タスク管理しやすい', 'テンプレートを用いてタスクをらくらく作成できる'];
+    let currentIndex = 0;
+
+    setInterval(() => {
+      explanationElement.style.opacity = '0'; // 文字列を透明にする
+      setTimeout(() => {
+        explanationElement.innerText = explanations[currentIndex];
+        explanationElement.style.opacity = '1'; // 文字列を表示する
+        currentIndex = (currentIndex + 1) % explanations.length;
+      }, 1000); 
+    }, 6000);  // 12秒毎に文字を切り替える
+
+  </script>
+
+</body>
+</html>
