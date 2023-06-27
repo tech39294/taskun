@@ -61,7 +61,7 @@ class TasksController < ApplicationController
   end
 
   def archive_index
-    @archived_tasks = current_user.tasks.where(archived: true)
+    @archived_tasks = current_user.tasks.where(archived: true).order(task_deadline: :desc)
   end
 
   private
