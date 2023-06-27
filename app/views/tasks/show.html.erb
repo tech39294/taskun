@@ -63,7 +63,8 @@
     <%= link_to '編集', edit_task_path(@task), class: 'edit-destroy-button' %>
     <%= link_to '削除', task_path(@task), method: :delete, class: 'edit-destroy-button' %>
     <button class="share-button">共有</button> 
-    <button class="consult-button">相談</button> 
+    <%= link_to 'アーカイブ', archive_task_path(@task), method: :post, class: 'consult-button' %>
+
   </div>
   <!-- 共有文書エリア -->
   <div id="shared-document"></div>
