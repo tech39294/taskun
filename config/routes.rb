@@ -6,6 +6,10 @@ Rails.application.routes.draw do
 
   resources :tasks do
     resources :subtasks
+    post :archive, on: :member
+    collection do
+      get 'archive_index'
+    end
   end
 
   resources :task_templates do
