@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_06_15_155856) do
+ActiveRecord::Schema.define(version: 2023_06_26_135035) do
 
   create_table "subtask_templates", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "subtask_template_days", null: false
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 2023_06_15_155856) do
     t.bigint "task_template_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "archived", default: false
     t.index ["task_template_id"], name: "index_tasks_on_task_template_id"
     t.index ["user_id"], name: "index_tasks_on_user_id"
   end

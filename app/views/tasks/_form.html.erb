@@ -48,7 +48,7 @@
   </div>
 
   <div class="edit-buttons">
-    <%= f.submit "更新", class: "edit-button" %>
+    <%= f.submit "更新", class: "edit-button", name: "archived", value: "更新", formnovalidate: true %>
     <% if @task.new_record? %>
       <%= link_to 'もどる', tasks_path, class: "back-button" %>
     <% else %>

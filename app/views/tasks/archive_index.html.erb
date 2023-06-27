@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.84.0">
+    <title>Album example · Bootstrap v5.0</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/album/">
+
+    
+
+    <!-- Bootstrap core CSS -->
+<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    
+  </head>
+  <body>
+<div class="main-content">    
+
+  <main>
+
+    <section class="py-5 text-center container">
+      <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+          <h1 class="fw-light">アーカイブ</h1>
+          <p class="lead text-muted">これまで達成したタスクの一覧です。<br>タグ検索をすると、ジャンルごとに達成したタスクを確認できます。</p>
+          <p>
+            <a href="#" class="btn btn-primary my-2">タグ検索</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="album py-5 bg-light">
+      <div class="container">
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3"style="position: relative;">
+          <% @archived_tasks.each do |task| %>
+            <div class="col">
+              <div class="card shadow-sm"style="height: 200px;">
+                <div class="card-body">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="h4 text-center"><%= task.task_title %></div>
+                    <div class="text-muted h6"><%= task.task_deadline.strftime("%Y-%m-%d") %></div>
+                  </div>
+                  <hr>
+                  <% task.subtasks.each do |subtask| %>
+                    <div class="d-flex justify-content-between align-items-center" style="margin-bottom: 2px;">
+                      <div class="h5 text-center"><%= subtask.subtask_title %></div>
+                      <% if subtask.subtask_deadline %>
+                        <div class="text-muted h6"><%= subtask.subtask_deadline.strftime("%Y-%m-%d") %></div>
+                      <% else %>
+                        <div class="text-muted h6">No Deadline</div>
+                      <% end %>
+                    </div>
+                  <% end %>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group" style="position: absolute; bottom: 10px; left: 10px;">
+                      <%= link_to 'Edit', edit_task_path(task), class: "btn btn-sm btn-outline-secondary" %>
+                    </div>
+                    <div class="btn-group" style="position: absolute; bottom: 10px; right: 10px;">
+                      <%= link_to 'Delete', task_path(task, param: 'archive'), method: :delete, class: 'btn btn-sm btn-outline-secondary' %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+</div>
+
+    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+
+      
+  </body>
+</html>

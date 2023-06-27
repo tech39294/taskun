@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
-  before_action :authenticate_user!, only: [:index, :new, :show, :edit, :destroy]
+  before_action :authenticate_user!, only: [:index, :new, :show, :edit, :destroy, :archive_index]
   before_action :restrict_access, only: [:edit, :destroy]
-  before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :set_task, only: [:show, :edit, :update, :destroy, :archive]
 
   def index
     task_filter_service = TaskFilterService.new(current_user.id)
@@ -33,7 +33,11 @@ class TasksController < ApplicationController
 
   def update
     if @task.update(task_params)
-      redirect_to task_path(@task)
+      if params[:archived] == '更新'
+        redirect_to archive_index_tasks_path
+      else
+        redirect_to task_path(@task)
+      end
     else
       render :edit
     end
@@ -43,7 +47,20 @@ class TasksController < ApplicationController
     @subtasks.destroy_all
     @task.destroy
 
+    if params[:param] == 'archive'
+      redirect_to archive_index_tasks_path
+    else
+      redirect_to tasks_path
+    end
+  end
+
+  def archive
+    @task.update(archived: true)
     redirect_to tasks_path
+  end
+
+  def archive_index
+    @archived_tasks = current_user.tasks.where(archived: true).order(task_deadline: :desc)
   end
 
   private

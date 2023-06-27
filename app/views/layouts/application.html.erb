@@ -148,6 +148,13 @@
             <% end %>
 
             </li>
+            <li>
+            <%= link_to archive_index_tasks_path, class: "nav-link text-white" do %>
+              <%= image_tag("box.png", class: "bi me-2", width: 16, height: 16) %>
+              アーカイブ
+            <% end %>
+
+            </li>
           </ul>
           <hr>
           <div class="dropdown">
@@ -163,9 +170,15 @@
         </div>
         <%end%>
 
-        
         <%= yield %>
-        
+
+        <% unless devise_controller? %>
+        <footer class="text-muted py-5 fixed-bottom"style="margin-left:280px;">
+          <div class="container">
+            <p class="mb-1"style=" text-align:center;">taskun is an application that helps you manage your tasks more efficiently. taskun is here to support you anytime.</p>
+          </div>
+        </footer>
+        <% end %>
 
       </div>
       <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
