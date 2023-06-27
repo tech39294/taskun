@@ -212,24 +212,24 @@ RSpec.describe 'Tasks', type: :request do
     end
   end
 
-  describe "POST #archive" do
+  describe 'POST #archive' do
     before do
       @user = FactoryBot.create(:user)
       @task = FactoryBot.create(:task, user: @user)
     end
 
-    context "ユーザーがログインしている場合" do
+    context 'ユーザーがログインしている場合' do
       before do
         sign_in @user
       end
-    
-      it "タスクをアーカイブに移動させると、アーカイブ一覧画面に表示される" do
+
+      it 'タスクをアーカイブに移動させると、アーカイブ一覧画面に表示される' do
         post archive_task_path(@task), params: { id: @task.id }
         get archive_index_tasks_path
         expect(response.body).to include(@task.task_title)
       end
-    
-      it "アーカイブとなったタスクはタスク一覧画面では表示されない" do
+
+      it 'アーカイブとなったタスクはタスク一覧画面では表示されない' do
         post archive_task_path(@task), params: { id: @task.id }
         get tasks_path
         expect(response.body).not_to include(@task.task_title)
@@ -237,14 +237,14 @@ RSpec.describe 'Tasks', type: :request do
     end
   end
 
-  describe "GET #archive_index" do
+  describe 'GET #archive_index' do
     before do
       @user = FactoryBot.create(:user)
       @task = FactoryBot.create(:task, user: @user)
     end
 
-    context "ユーザーがログインしていない場合" do    
-      it "アーカイブ一覧画面に遷移できず、サインインページに遷移する" do
+    context 'ユーザーがログインしていない場合' do
+      it 'アーカイブ一覧画面に遷移できず、サインインページに遷移する' do
         get archive_index_tasks_path
         expect(response).to redirect_to new_user_session_path
       end

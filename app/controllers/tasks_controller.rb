@@ -33,11 +33,11 @@ class TasksController < ApplicationController
 
   def update
     if @task.update(task_params)
-      if params[:archived] == "更新"
+      if params[:archived] == '更新'
         redirect_to archive_index_tasks_path
       else
         redirect_to task_path(@task)
-      end      
+      end
     else
       render :edit
     end
@@ -52,7 +52,6 @@ class TasksController < ApplicationController
     else
       redirect_to tasks_path
     end
-    
   end
 
   def archive

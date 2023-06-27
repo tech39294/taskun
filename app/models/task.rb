@@ -11,6 +11,6 @@ class Task < ApplicationRecord
   validates_associated :subtasks
 
   def start_time
-    self.task_deadline
+    task_deadline
   end
 end
