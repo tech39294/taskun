@@ -523,4 +523,15 @@ border-radius: 4px;
   border-radius: 4px; 
 }
 
+/******************************************** 
+  フッター
+*********************************************/
 
+.footer {
+  position: fixed;
+  width: calc(100%-280px);
+  margin-left:280px;
+  height: 80px;
+  background-color: #f8f9fa;
+  z-index: -1; 
+}

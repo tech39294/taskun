@@ -170,14 +170,15 @@
         </div>
         <%end%>
 
-        
         <%= yield %>
-        
-        <footer class="text-muted py-5 fixed-bottom">
-          <div class="container"style=" margin: 0 auto;">
+
+        <% unless devise_controller? %>
+        <footer class="text-muted py-5 fixed-bottom"style="margin-left:280px;">
+          <div class="container">
             <p class="mb-1"style=" text-align:center;">taskun is an application that helps you manage your tasks more efficiently. taskun is here to support you anytime.</p>
           </div>
         </footer>
+        <% end %>
 
       </div>
       <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
