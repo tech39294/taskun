@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.84.0">
+    <title>Checkout example · Bootstrap v5.0</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/checkout/">
+
+    
+
+    <!-- Bootstrap core CSS -->
+<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    <link href="form-validation.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <div class="main-content">  
+
+      <section class="py-5 text-center container"style="background-color:lightgray;">
+        <div class="row py-lg-5">
+          <div class="col-lg-6 col-md-8 mx-auto">
+            <h1>Account Page</h1>
+            <p class="lead">
+              "You can edit your account by pressing the Edit button.You can delete your account by pressing the Delete button."
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <div class="col-md-7 col-lg-8" style="margin: 0 auto;">
+
+        <div class="row g-3"style="text-align:center;">
+          <div class="col-12 h3" style="margin-top: 50px; margin-bottom: 50px;">
+            <label for="username" class="form-label">Username</label>
+            <div>
+              <%= @user.username %>
+            </div>
+          </div>
+
+          <div class="col-12 h3">
+            <label for="email" class="form-label">Email </label>
+            <div>
+              <%= @user.email %>
+            </div>
+          </div>
+        </div>
+
+        
+      </div>
+
+    </div>
+    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="form-validation.js"></script>
+  </body>
+</html>
