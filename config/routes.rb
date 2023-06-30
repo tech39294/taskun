@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     root to: "devise/sessions#new"
   end
 
-  resources :users, only: [:show]
+  resources :users, only: [:show, :edit, :update]
 
   resources :tasks do
     resources :subtasks
