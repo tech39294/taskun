@@ -13,7 +13,7 @@
     
 
     <!-- Bootstrap core CSS -->
-<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
       .bd-placeholder-img {
@@ -48,30 +48,33 @@
         </div>
       </section>
 
+      <%= form_with model: @user, local: true do |f|%>
+      <%= render 'shared/error_messages', model: @user %>
+
       <div class="col-md-7 col-lg-8" style="margin: 0 auto;">
 
         <div class="row g-3"style="text-align:center;">
           <div class="col-12 h3" style="margin-top: 50px; margin-bottom: 50px;">
             <label for="username" class="form-label">Username</label>
-            <div>
-              <%= @user.username %>
+            <div class="inputform" style="width:250px;margin: 0 auto;">
+              <%= f.text_field :username %>
             </div>
           </div>
 
           <div class="col-12 h3">
             <label for="email" class="form-label">Email </label>
-            <div>
-              <%= @user.email %>
+            <div class="inputform"style="width:250px;margin: 0 auto;">
+              <%= f.text_field :email %>
             </div>
           </div>
         </div>
 
-      </div>
+        <div class="edit-buttons" style="text-align:center;margin-top:30px;">
+          <%= f.submit "更新", class: "edit-button"%>
+        </div>
 
-      <div class="user-edit" style="text-align: center; margin-top:60px;">
-        <% if user_signed_in? && @user == current_user %>
-          <%= link_to "アカウント情報編集", edit_user_path(current_user), class: 'button-style'%>
-        <% end %>
+      <% end %>
+
       </div>
 
     </div>
