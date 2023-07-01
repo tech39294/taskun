@@ -6,6 +6,9 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :edit, :update]
 
+  # 論理削除用のルーティング
+  patch '/users/:id/withdrawal' => 'users#withdrawal', as: 'withdrawal'
+
   resources :tasks do
     resources :subtasks
     post :archive, on: :member

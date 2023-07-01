@@ -8,4 +8,10 @@ class User < ApplicationRecord
 
   has_many :tasks
   has_many :task_templates
+
+  # is_deletedがfalseならtrueを返すようにしている
+  def active_for_authentication?
+    super && (is_deleted == false)
+  end
+
 end
