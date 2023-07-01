@@ -74,6 +74,12 @@
         <% end %>
       </div>
 
+      <div class="user-edit" style="text-align: center; margin-top:40px;">
+        <% if user_signed_in? && @user == current_user %>
+          <%= link_to "アカウント削除", withdrawal_path(current_user), method: :patch %>
+        <% end %>
+      </div>
+
     </div>
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
     <script src="form-validation.js"></script>
