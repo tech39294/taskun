@@ -29,4 +29,17 @@ RSpec.describe 'Users', type: :request do
     end
   end
 
+  describe 'DELETE /users/:id' do
+    before do
+      @user = FactoryBot.create(:user)
+      sign_in @user
+    end
+
+    it 'アカウントを論理削除できる' do
+      patch withdrawal_path(@user)
+      expect(@user.reload.is_deleted).to be true   
+      expect(response).to redirect_to(root_path)  
+    end
+  end
+
 end
