@@ -13,4 +13,14 @@ class Task < ApplicationRecord
   def start_time
     task_deadline
   end
+
+  def self.search(search)
+    if search != ""
+      Task.where('task_title LIKE(?) AND archived = ?', "%#{search}%", true)
+    else
+      Task.all
+    end
+  end
+  
+
 end

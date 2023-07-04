@@ -57,37 +57,41 @@
       <div class="container">
 
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3"style="position: relative;">
-          <% @archived_tasks.each do |task| %>
-            <div class="col">
-              <div class="card shadow-sm"style="height: 200px;">
-                <div class="card-body">
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="h4 text-center"><%= task.task_title %></div>
-                    <div class="text-muted h6"><%= task.task_deadline.strftime("%Y-%m-%d") %></div>
-                  </div>
-                  <hr>
-                  <% task.subtasks.each do |subtask| %>
-                    <div class="d-flex justify-content-between align-items-center" style="margin-bottom: 2px;">
-                      <div class="h5 text-center"><%= subtask.subtask_title %></div>
-                      <% if subtask.subtask_deadline %>
-                        <div class="text-muted h6"><%= subtask.subtask_deadline.strftime("%Y-%m-%d") %></div>
-                      <% else %>
-                        <div class="text-muted h6">No Deadline</div>
-                      <% end %>
+          <%if @tasks.any?%>
+            <% @tasks.each do |task| %>
+              <div class="col">
+                <div class="card shadow-sm"style="height: 200px;">
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="h4 text-center"><%= task.task_title %></div>
+                      <div class="text-muted h6"><%= task.task_deadline.strftime("%Y-%m-%d") %></div>
                     </div>
-                  <% end %>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group" style="position: absolute; bottom: 10px; left: 10px;">
-                      <%= link_to 'Edit', edit_task_path(task), class: "btn btn-sm btn-outline-secondary" %>
-                    </div>
-                    <div class="btn-group" style="position: absolute; bottom: 10px; right: 10px;">
-                      <%= link_to 'Delete', task_path(task, param: 'archive'), method: :delete, class: 'btn btn-sm btn-outline-secondary' %>
+                    <hr>
+                    <% task.subtasks.each do |subtask| %>
+                      <div class="d-flex justify-content-between align-items-center" style="margin-bottom: 2px;">
+                        <div class="h5 text-center"><%= subtask.subtask_title %></div>
+                        <% if subtask.subtask_deadline %>
+                          <div class="text-muted h6"><%= subtask.subtask_deadline.strftime("%Y-%m-%d") %></div>
+                        <% else %>
+                          <div class="text-muted h6">No Deadline</div>
+                        <% end %>
+                      </div>
+                    <% end %>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="btn-group" style="position: absolute; bottom: 10px; left: 10px;">
+                        <%= link_to 'Edit', edit_task_path(task), class: "btn btn-sm btn-outline-secondary" %>
+                      </div>
+                      <div class="btn-group" style="position: absolute; bottom: 10px; right: 10px;">
+                        <%= link_to 'Delete', task_path(task, param: 'archive'), method: :delete, class: 'btn btn-sm btn-outline-secondary' %>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          <% end %>
+            <% end %>
+          <%else%>
+            <div> 条件を含むタスクはありません</div>
+          <%end%>
         </div>
       </div>
     </div>
