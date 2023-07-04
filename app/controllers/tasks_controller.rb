@@ -63,6 +63,10 @@ class TasksController < ApplicationController
     @archived_tasks = current_user.tasks.where(archived: true).order(task_deadline: :desc)
   end
 
+  def search
+    @tasks = Task.search(params[:keyword])
+  end
+
   private
 
   def set_task

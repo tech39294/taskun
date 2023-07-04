@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     post :archive, on: :member
     collection do
       get 'archive_index'
+      get 'search'
     end
   end
 
