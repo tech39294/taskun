@@ -41,7 +41,7 @@ class TasksController < ApplicationController
     else
       render :edit
     end
-  end  
+  end
 
   def destroy
     @subtasks.destroy_all
@@ -65,7 +65,6 @@ class TasksController < ApplicationController
 
   def archive_show
     @task = Task.find(params[:id])
-
   end
 
   def search
