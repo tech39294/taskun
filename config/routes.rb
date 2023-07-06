@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :tasks do
     resources :subtasks
     post :archive, on: :member
+    get :archive_show, on: :member
     collection do
       get 'archive_index'
       get 'search'

@@ -1,0 +1,39 @@
+<div class="main-content">
+  <div class="task">
+    <div class="task-deadline">
+      <%= @task.task_deadline%>
+    </div>
+    <div class="task-title">
+      <%= @task.task_title %>
+    </div>
+  </div>
+
+<% if @task.subtasks.present? && @task.subtasks.any? { |subtask| subtask.subtask_deadline.present? } %>
+  <div class="subtasks">
+  <% @task.subtasks.each do |subtask| %>
+    <div class="subtask">
+      <div class="subtask-deadline">
+        <%= subtask.subtask_deadline %>
+      </div>
+      <div class="subtask-title">
+        <%= subtask.subtask_title %>
+      </div>
+    </div>
+  <% end %>
+  </div>
+<% end %>
+
+  <div class="memo">
+    <div class="memo-title">
+      Memo
+    </div>
+    <div class="memo-content">
+      <%= @task.memo %>
+    </div>
+  </div>
+  <div class="buttons">
+    <%= link_to 'アーカイブに戻る', archive_index_tasks_path, class: 'archive-index-button' %>
+  </div>
+  <!-- 共有文書エリア -->
+  <div id="shared-document"></div>
+</div>

@@ -33,15 +33,15 @@ class TasksController < ApplicationController
 
   def update
     if @task.update(task_params)
-      if params[:archived] == '更新'
-        redirect_to archive_index_tasks_path
+      if @task.archived?
+        redirect_to archive_show_task_path(@task)
       else
         redirect_to task_path(@task)
       end
     else
       render :edit
     end
-  end
+  end  
 
   def destroy
     @subtasks.destroy_all
@@ -61,6 +61,11 @@ class TasksController < ApplicationController
 
   def archive_index
     @archived_tasks = current_user.tasks.where(archived: true).order(task_deadline: :desc)
+  end
+
+  def archive_show
+    @task = Task.find(params[:id])
+
   end
 
   def search
