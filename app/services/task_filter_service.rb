@@ -30,6 +30,7 @@ class TaskFilterService
                                        .where(subtasks: { subtask_deadline: nil })
                                        .order(task_deadline: :asc)
 
-    urgent_important_tasks + urgent_tasks + important_tasks + important_tasks_without_subtasks + other_tasks + other_tasks_without_subtasks
+    (urgent_important_tasks + urgent_tasks + important_tasks + important_tasks_without_subtasks + other_tasks + other_tasks_without_subtasks).uniq { |task| task.id }
+
   end
 end
