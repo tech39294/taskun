@@ -12,10 +12,10 @@
         <table class="table table-hover custom-table" style="width: calc(100vw - 280px);">
             <thead>
                 <tr>
-                    <th>緊急度</th>
-                    <th>重要度</th>
-                    <th>期限</th>
-                    <th>タスク名</th>
+                    <th class="mozi">緊急度</th>
+                    <th class="mozi">重要度</th>
+                    <th class="mozi">タスクの期限</th>
+                    <th class="mozi">タスクのタイトル</th>
                 </tr>
             </thead>
               <tbody>
@@ -31,8 +31,8 @@
                         <%= image_tag 'important.png', alt: 'サンプル画像です', class: 'important-image' %>
                       <% end %>
                     </td>
-                    <td><%= task.task_deadline %></td>
-                    <td><%= link_to task.task_title, task_path(task.id) %></td>
+                    <td class="mozi"><%= task.task_deadline %></td>
+                    <td class="mozi"><%= link_to task.task_title, task_path(task.id) %></td>
                   </tr>
                 <% end %>
               </tbody>
