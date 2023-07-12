@@ -109,62 +109,62 @@
           <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
             <%# アイコンの部分 %>
             <%= image_tag 'T.png', alt: 'サンプル画像です', class: 'pato-image bi me-2' %>
-            <span class="fs-4">Taskun</span>
+            <span class="daimozi">Taskun</span>
           </a>
           <hr>
           <ul class="nav nav-pills flex-column mb-auto">
-            <li class="nav-item">
+            <li class="nav-item mozi">
               <a href="<%= tasks_path %>" class="nav-link text-white" aria-current="page">
-                <svg class="bi me-2" width="16" height="16">
+                <svg class="bi me-2" width="20" height="20">
                   <use xlink:href="#home"/>
                 </svg>
                 一覧ページ
               </a>
             </li>
-            <li>
+            <li class="mozi">
               <%= link_to new_task_path, class: "nav-link text-white" do %>
-                <svg class="bi me-2" width="16" height="16">
+                <svg class="bi me-2" width="20" height="20">
                   <use xlink:href="#speedometer2"/>
                 </svg>
                 新規タスク投稿
               <% end %>
-
             </li>
-            <li>
+
+            <li class="mozi">
             <%= link_to calendars_path, class: "nav-link text-white" do %>
-              <svg class="bi me-2" width="16" height="16">
+              <svg class="bi me-2" width="20" height="20">
                 <use xlink:href="#table"/>
               </svg>
               カレンダー
             <% end %>
-
             </li>
-            <li>
+
+            <li class="mozi">
             <%= link_to task_templates_path, class: "nav-link text-white" do %>
-              <svg class="bi me-2" width="16" height="16">
+              <svg class="bi me-2" width="20" height="20">
                 <use xlink:href="#grid"/>
               </svg>
               テンプレート検索
             <% end %>
-
             </li>
-            <li>
+
+            <li class="mozi">
             <%= link_to archive_index_tasks_path, class: "nav-link text-white" do %>
-              <%= image_tag("box.png", class: "bi me-2", width: 16, height: 16) %>
+              <%= image_tag("box.png", class: "bi me-2", width: 20, height: 20) %>
               アーカイブ
             <% end %>
-
             </li>
+
           </ul>
           <hr>
-          <div class="dropdown">
-            <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+          <div class="dropdown mozi">
+            <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle mozi" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
               <strong><%= current_user&.username %></strong>
             </a>
-            <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-              <li><%= link_to "Account", user_path(current_user), method: :get, class: "dropdown-item" %></li>
+            <ul class="dropdown-menu dropdown-menu-dark text-small shadow mozi" aria-labelledby="dropdownUser1">
+              <li><%= link_to "Account", user_path(current_user), method: :get, class: "dropdown-item mozi" %></li>
               <li><hr class="dropdown-divider"></li>
-              <li><%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
+              <li><%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "dropdown-item mozi" %></li>
             </ul>
           </div>
         </div>
