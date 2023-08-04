@@ -4,7 +4,12 @@ Rails.application.routes.draw do
     root to: "devise/sessions#new"
   end
 
-  resources :users, only: [:show, :edit, :update]
+  resources :users, only: [:show, :edit, :update] do
+    collection do
+      get 'settings'
+      patch 'update_settings'
+    end
+  end
 
   patch '/users/:id/withdrawal' => 'users#withdrawal', as: 'withdrawal'
 
