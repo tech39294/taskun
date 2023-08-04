@@ -25,6 +25,19 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
+  def settings
+    @user = current_user
+  end
+
+  def update_settings
+    @user = current_user
+    if @user.update(user_params)
+      redirect_to tasks_path, notice: '設定が更新されました。'
+    else
+      render :settings
+    end
+  end
+
   private
 
   def set_user
@@ -32,6 +45,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:username, :email)
+    params.require(:user).permit(:username, :email, :task_sort_preference)
   end
 end
