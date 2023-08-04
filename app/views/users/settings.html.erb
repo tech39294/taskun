@@ -1,0 +1,7 @@
+<div class="main-content">
+  <%= form_for @user, url: update_settings_users_path, method: :patch do |f| %>
+    <%= f.label :task_sort_preference, "緊急度と重要度でソートする" %>
+    <%= f.check_box :task_sort_preference %>
+    <%= f.submit "設定を保存" %>
+  <% end %>
+</div>

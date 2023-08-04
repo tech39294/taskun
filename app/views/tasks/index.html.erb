@@ -6,10 +6,10 @@
 </head>
  
 <body>
-  <div class="main-content">
+  <div class="main-content" style="width: calc(100vw - 320px);"> 
  
     <div class="col-5 ml-3">
-        <table class="table table-hover custom-table" style="width: calc(100vw - 280px);">
+        <table class="table table-hover custom-table" style="width: calc(100vw - 320px);">
             <thead>
                 <tr>
                     <th class="mozi">緊急度</th>
@@ -38,6 +38,15 @@
               </tbody>
         </table>
     </div>
+  </div>
+
+  <div class="d-flex flex-column flex-shrink-0 bg-light" style="width: 4.5rem;">
+    <a href="/" class=" p-1 link-dark text-decoration-none" title="Icon-only" data-bs-toggle="tooltip" data-bs-placement="right">
+      <%= link_to settings_users_path, class: "nav-link text-white" do %>
+      <%= image_tag("gear.png", class: "bi me-2", width: 30, height: 30) %>
+      <% end %>
+      <span class="visually-hidden">Icon-only</span>
+    </a>
   </div>
   <footer class="text-muted py-5 fixed-bottom"style="margin-left:280px;">
     <div class="container">

@@ -4,8 +4,14 @@ class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy, :archive]
 
   def index
-    task_filter_service = TaskFilterService.new(current_user.id)
-    @tasks = task_filter_service.filtered_tasks
+    if current_user.task_sort_preference
+      # TaskFilterServiceを使用して緊急度と重要度でタスクをソート
+      task_filter_service = TaskFilterService.new(current_user.id)
+      @tasks = task_filter_service.filtered_tasks
+    else
+      # タスクIDの降順でソートするロジック
+      @tasks = Task.where(user_id: current_user.id, archived: false).order(id: :desc)
+    end
   end
 
   def new
